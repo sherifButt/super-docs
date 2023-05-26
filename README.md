@@ -1,4 +1,5 @@
 <img src="./readme/logo.png" />
+![logo](./readme/logo.png)
 
 Documentation toolbox for your **javascript** / **typescript** projects based on JSDoc3 with **@category**, **@component** and **@optional** plugins.
 
