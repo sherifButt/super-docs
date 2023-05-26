@@ -22,7 +22,7 @@ This is how it looks:
 
 Example documentation can be found here: https://softwarebrothers.github.io/example-design-system/index.html
 
-# OpenSource SoftwareBrothers community
+# OpenSource sherifButt community
 
 - [Join the community](https://join.slack.com/t/adminbro/shared_invite/zt-czfb79t1-0U7pn_KCqd5Ts~lbJK0_RA) to get help and be inspired.
 - subscribe to our [newsletter](http://opensource.softwarebrothers.co)
@@ -30,7 +30,7 @@ Example documentation can be found here: https://softwarebrothers.github.io/exam
 # Installation
 
 ```sh
-npm install --save-dev better-docs
+npm install --save-dev super-docs
 ```
 
 # Theme Usage
@@ -40,7 +40,7 @@ npm install --save-dev better-docs
 Assuming that you have [jsdoc](https://github.com/jsdoc/jsdoc) installed globally:
 
 ```
-jsdoc your-documented-file.js -t ./node_modules/better-docs
+jsdoc your-documented-file.js -t ./node_modules/super-docs
 ```
 
 ## With npm and configuration file
@@ -57,13 +57,13 @@ in your `jsdoc.json` file, set the template:
 
 ```json
 "opts": {
-  "template": "node_modules/better-docs"
+  "template": "node_modules/super-docs"
 }
 ```
 
 # TypeScript support
 
-better-docs has a plugin which allows you to generate documentation from your TypeScript codebase.
+super-docs has a plugin which allows you to generate documentation from your TypeScript codebase.
 
 ## Usage
 
@@ -75,7 +75,7 @@ To use it update your `jsdoc.json` file
     "allowUnknownTags": ["optional"] //or true
 },
 "plugins": [
-    "node_modules/better-docs/typescript"
+    "node_modules/super-docs/typescript"
 ],
 "source": {
     "includePattern": "\\.(jsx|js|ts|tsx)$",
@@ -217,7 +217,7 @@ class ClassName {
 
 # @category plugin
 
-better-docs also allows you to nest your documentation into categories and subcategories in the sidebar menu.
+super-docs also allows you to nest your documentation into categories and subcategories in the sidebar menu.
 
 ## Usage
 
@@ -229,7 +229,7 @@ To add a plugin - update `plugins` section in your `jsdoc.json` file:
     "allowUnknownTags": ["category"] //or true
 },
 "plugins": [
-    "node_modules/better-docs/category"
+    "node_modules/super-docs/category"
 ],
 ...
 ```
@@ -249,7 +249,7 @@ class YourClass {
 
 # @component plugin [BETA]
 
-Better-docs also allows you to document your [React](https://reactjs.org/) and [Vue](https://vuejs.org/) components automatically. The only thing you have to do is to add a `@component` tag. It will take all props from your components and along with an `@example` tag - will generate a __live preview__.
+Super-docs also allows you to document your [React](https://reactjs.org/) and [Vue](https://vuejs.org/) components automatically. The only thing you have to do is to add a `@component` tag. It will take all props from your components and along with an `@example` tag - will generate a __live preview__.
 
 ## Installation instructions
 
@@ -261,7 +261,7 @@ Similar as before to add a plugin - you have to update the `plugins` section in 
     "allowUnknownTags": ["component"] //or true
 },
 "plugins": [
-    "node_modules/better-docs/component"
+    "node_modules/super-docs/component"
 ],
 ...
 ```
@@ -441,7 +441,7 @@ _(To read more about passing options - scroll down to __Customization__ section)
 {
     "opts": {...},
     "templates": {
-        "better-docs": {
+        "super-docs": {
             "name": "Sample Documentation",
             "component": {
               "wrapper": "./path/to/your/wrapper-component.js",
@@ -483,7 +483,7 @@ export default Component
 
 ## Styling React examples
 
-Better-docs inserts all examples within an `iframe`. This results in the following styling options:
+Super-docs inserts all examples within an `iframe`. This results in the following styling options:
 
 1. If you pass styles inline - they will work right away.
 
@@ -532,7 +532,7 @@ So let's say you want to add `babel-polyfill` and 'bulma.css' framework to your 
 {
     "opts": {...},
     "templates": {
-        "better-docs": {
+        "super-docs": {
             "name": "Sample Documentation",
             "component": {
                 "entry": [
@@ -548,13 +548,13 @@ So let's say you want to add `babel-polyfill` and 'bulma.css' framework to your 
 
 # Customization
 
-First of all, let me state that better-docs extends the `default` template. That is why default template parameters are also handled.
+First of all, let me state that super-docs extends the `default` template. That is why default template parameters are also handled.
 
 [BETA]: You must explicitly set the `search` option of the `default` template to `true` to enable search
 
-To customize the better-docs pass `options` to `templates['better-docs']`. section in your `jsdoc configuration file`.
+To customize the super-docs pass `options` to `templates['super-docs']`. section in your `jsdoc configuration file`.
 
-Example configuration file with settings for both `default` and `better-docs` templates:
+Example configuration file with settings for both `default` and `super-docs` templates:
 
 ```json
 {
@@ -569,7 +569,7 @@ Example configuration file with settings for both `default` and `better-docs` te
     "plugins": [
         "plugins/markdown",
         "jsdoc-mermaid",
-        "node_modules/better-docs/category"
+        "node_modules/super-docs/category"
     ],
     "opts": {
         "encoding": "utf8",
@@ -578,7 +578,7 @@ Example configuration file with settings for both `default` and `better-docs` te
         "recurse": true,
         "verbose": true,
         "tutorials": "./docs-src/tutorials",
-        "template": "better-docs"
+        "template": "super-docs"
     },
     "templates": {
         "cleverLinks": false,
@@ -591,7 +591,7 @@ Example configuration file with settings for both `default` and `better-docs` te
               ]
             }
         },
-        "better-docs": {
+        "super-docs": {
             "name": "Sample Documentation",
             "logo": "images/logo.png",
             "title": "", // HTML title
@@ -601,7 +601,7 @@ Example configuration file with settings for both `default` and `better-docs` te
             "navLinks": [
                 {
                     "label": "Github",
-                    "href": "https://github.com/SoftwareBrothers/admin-bro"
+                    "href": "https://github.com/sherifButt/admin-bro"
                 },
                 {
                     "label": "Example Application",
@@ -617,7 +617,7 @@ Example configuration file with settings for both `default` and `better-docs` te
 
 ### typedef(import(...))
 
-better-docs also has one extra plugin for handling typescript'like types imports like (it has to be one-liner):
+super-docs also has one extra plugin for handling typescript'like types imports like (it has to be one-liner):
 
 ```
 /** @typedef {import('./some-other-file').ExportedType} ExportedType */
@@ -627,7 +627,7 @@ It simply removes that from the code so JSDoc wont throw an error. In order to u
 
 ```
   "plugins": [
-        "node_modules/better-docs/typedef-import"
+        "node_modules/super-docs/typedef-import"
     ],
 ```
 
@@ -639,19 +639,19 @@ If you want to change the theme locally follow the steps:
 
 ```
 cd your-project
-git clone git@github.com:SoftwareBrothers/better-docs.git
+git clone git@github.com:sherifButt/super-docs.git
 ```
 
 or add it as a git submodule:
 
 ```
-git submodule add git@github.com:SoftwareBrothers/better-docs.git
+git submodule add git@github.com:sherifButt/super-docs.git
 ```
 
 2. Install the packages
 
 ```
-cd better-docs
+cd super-docs
 
 npm install
 
@@ -660,17 +660,17 @@ npm install
 yarn
 ```
 
-3. Within the better-docs folder run the gulp script. It will regenerate documentation every time you change something.
+3. Within the super-docs folder run the gulp script. It will regenerate documentation every time you change something.
 
 It supports following EVN variables:
 
 * `DOCS_COMMAND` - a command in your root repo which you use to generate documentation: i.e. `DOCS_COMMAND='jsdoc -c jsdoc.json'` or `npm run docs` if you have `docs` command defined in `package.json` file
-* `DOCS_OUTPUT` - where your documentation is generated. It should point to the same folder your jsdoc `--destination` conf. But make sure that it is relative to the path where you cloned `better-docs`.
+* `DOCS_OUTPUT` - where your documentation is generated. It should point to the same folder your jsdoc `--destination` conf. But make sure that it is relative to the path where you cloned `super-docs`.
 * `DOCS` - list of folders from your original repo what you want to watch for changes. Separated by comma.
 
 ```
-cd better-docs
-DOCS_COMMAND='npm run docs' DOCS=../src/**/*,../config/**/* DOCS_OUTPUT=../docs cd better-docs && gulp
+cd super-docs
+DOCS_COMMAND='npm run docs' DOCS=../src/**/*,../config/**/* DOCS_OUTPUT=../docs cd super-docs && gulp
 ```
 
 The script should launch the browser and refresh it whenever you change something in the template or in `DOCS`.
@@ -680,13 +680,13 @@ The script should launch the browser and refresh it whenever you change somethin
 If you want to see how to setup jsdoc in your project - take a look at these brief tutorials:
 
 - JSDoc - https://www.youtube.com/watch?v=Yl6WARA3IhQ
-- better-docs and Mermaid: https://www.youtube.com/watch?v=UBMYogTzsBk
+- super-docs and Mermaid: https://www.youtube.com/watch?v=UBMYogTzsBk
 
 # License
 
-better-docs is Copyright © 2019 SoftwareBrothers.co. It is free software and may be redistributed under the terms specified in the [LICENSE](LICENSE) file - MIT.
+super-docs is Copyright © 2019 sherifButt.co. It is free software and may be redistributed under the terms specified in the [LICENSE](LICENSE) file - MIT.
 
-# About SoftwareBrothers.co
+# About sherifButt.co
 
 <img src="https://softwarebrothers.co/assets/images/software-brothers-logo-full.svg" width=240>
 

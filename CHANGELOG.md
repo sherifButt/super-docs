@@ -10,7 +10,7 @@ Changelog maintained after version 1.3.0
 
 ### Fixed
 
-- fix `css` parameter in better-docs theme properties.
+- fix `css` parameter in super-docs theme properties.
 
 ## Version 2.0.0 - 2020-04-29
 
@@ -46,7 +46,7 @@ Changelog maintained after version 1.3.0
 
 ### Added
 
-- add the ability to include a stylesheet via templates.default.staticFiles and then include it in the final theme via templates[better-docs].css
+- add the ability to include a stylesheet via templates.default.staticFiles and then include it in the final theme via templates[super-docs].css
 
 ## Version 1.4.8 - 2020-04-28
 

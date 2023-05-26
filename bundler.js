@@ -51,18 +51,18 @@ module.exports = function bundle (Components, out, config) {
     import './styles/iframe.css';\n
   `
 
-  if (config.betterDocs.component) {
-    if(config.betterDocs.component.wrapper) {
-      const absolute = path.resolve(config.betterDocs.component.wrapper)
+  if (config.superDocs.component) {
+    if(config.superDocs.component.wrapper) {
+      const absolute = path.resolve(config.superDocs.component.wrapper)
       const relative = pathCrossEnv(path.relative(absoluteOut, absolute))
       init +=`
       import _CustomWrapper from '${relative}';\n
       window._CustomWrapper = _CustomWrapper;\n
       `
     }
-    if(config.betterDocs.component.entry
-      && config.betterDocs.component.entry.length) {
-      init = `${config.betterDocs.component.entry.join('\n')}\n${init}`
+    if(config.superDocs.component.entry
+      && config.superDocs.component.entry.length) {
+      init = `${config.superDocs.component.entry.join('\n')}\n${init}`
     }
   }
 

@@ -443,9 +443,9 @@ function buildGroupNav (members, title) {
  * @param {array<object>} members.interfaces
  * @return {string} The HTML for the navigation sidebar.
  */
-function buildNav(members, navTypes = null, betterDocs) {
-  const href = betterDocs.landing ? 'docs.html' : 'index.html'
-  const chnagelog = betterDocs.changelog && fs.existsSync(betterDocs.changelog, 'utf8') ? '<h2><a href="changelog.html">Changelog</a></h2> ' : ''
+function buildNav(members, navTypes = null, superDocs) {
+  const href = superDocs.landing ? 'docs.html' : 'index.html'
+  const chnagelog = superDocs.changelog && fs.existsSync(superDocs.changelog, 'utf8') ? '<h2><a href="changelog.html">Changelog</a></h2> ' : ''
   var nav = navTypes ? '' : `<h2><a href="${href}">Documentation</a></h2> ${chnagelog}`
 
   var categorised = {}
@@ -511,7 +511,7 @@ exports.publish = function(taffyData, opts, tutorials) {
 
   conf = env.conf.templates || {}
   conf.default = conf.default || {}
-  conf.betterDocs = conf.betterDocs || conf['better-docs'] || {}
+  conf.superDocs = conf.superDocs || conf['super-docs'] || {}
 
   templatePath = path.normalize(opts.template)
   view = new template.Template( path.join(templatePath, 'tmpl') )
@@ -673,7 +673,7 @@ exports.publish = function(taffyData, opts, tutorials) {
     }
   })
 
-  view.smallHeader = !conf.betterDocs.navButtons
+  view.smallHeader = !conf.superDocs.navButtons
 
   members = helper.getMembers(data)
   if (opts.tutorials) {
@@ -710,9 +710,9 @@ exports.publish = function(taffyData, opts, tutorials) {
   view.outputSourceFiles = outputSourceFiles
 
   // once for all
-  view.nav = buildNav(members, null, conf.betterDocs)
+  view.nav = buildNav(members, null, conf.superDocs)
   
-  view.tutorialsNav = buildNav(members, ['tutorials'], conf.betterDocs)
+  view.tutorialsNav = buildNav(members, ['tutorials'], conf.superDocs)
 
   bundler(members.components, outdir, conf)
   attachModuleSymbols( find({ longname: {left: 'module:'} }), members.modules )
@@ -814,7 +814,7 @@ exports.publish = function(taffyData, opts, tutorials) {
   saveChildren(tutorials)
 
   function saveLandingPage() {
-    const content = fs.readFileSync(conf.betterDocs.landing, 'utf8')
+    const content = fs.readFileSync(conf.superDocs.landing, 'utf8')
         
     var landingPageData = {
       title: 'Home',
@@ -836,12 +836,12 @@ exports.publish = function(taffyData, opts, tutorials) {
 
   }
 
-  if (conf.betterDocs.landing && fs.existsSync(conf.betterDocs.landing, 'utf8')) {
+  if (conf.superDocs.landing && fs.existsSync(conf.superDocs.landing, 'utf8')) {
     saveLandingPage()
   }
 
   function saveChangeLogPage() {
-    const content = fs.readFileSync(conf.betterDocs.changelog, 'utf8')
+    const content = fs.readFileSync(conf.superDocs.changelog, 'utf8')
     
     var changeLogPageData = {
       title: 'ChangeLog',
@@ -865,7 +865,7 @@ exports.publish = function(taffyData, opts, tutorials) {
 
   }
 
-  if (conf.betterDocs.changelog && fs.existsSync(conf.betterDocs.changelog, 'utf8')) {
+  if (conf.superDocs.changelog && fs.existsSync(conf.superDocs.changelog, 'utf8')) {
     saveChangeLogPage()
   }
 }

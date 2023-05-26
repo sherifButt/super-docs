@@ -21,7 +21,7 @@
         "tutorials": "./fixtures/tutorials"
     },
     "templates": {
-        "better-docs": {
+        "super-docs": {
             "name": "Sample Documentation"
         }
     }

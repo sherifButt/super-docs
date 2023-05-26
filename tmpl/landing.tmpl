@@ -1,21 +1,21 @@
 <?js
-var betterDocs
+var superDocs
 
-if(env.conf.templates && env.conf.templates.betterDocs) {
-    betterDocs = env.conf.templates.betterDocs
+if(env.conf.templates && env.conf.templates.superDocs) {
+    superDocs = env.conf.templates.superDocs
 } else {
-    betterDocs = {}
+    superDocs = {}
 }
 var self = this
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<?js= this.partial('head.tmpl', { betterDocs, title }) ?>
+<?js= this.partial('head.tmpl', { superDocs, title }) ?>
 
 <body class="landing">
     <div id="stickyNavbarOverlay"></div>
-      <?js= this.partial('topnav.tmpl', { betterDocs }) ?>
+      <?js= this.partial('topnav.tmpl', { superDocs }) ?>
     <div id="main">
       <?js= content ?>
     </div>
@@ -23,7 +23,7 @@ var self = this
 <script src="scripts/app.min.js"></script>
 <script src="scripts/linenumber.js"> </script>
 <script src="scripts/jsdoc-mermaid.js"></script>
-<?js= betterDocs.bodyTrackingCode ?>
+<?js= superDocs.bodyTrackingCode ?>
 </body>
 </html>
 
