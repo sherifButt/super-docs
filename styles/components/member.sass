@@ -1,0 +1,57 @@
+.members
+  margin-top: $space-xl
+
+.member
+  span
+    .signature
+      color: $base-font-color-light
+      font-weight: 200
+  &:not(:last-child)
+    &:after
+      content: ""
+      background: $white
+      height: 1px
+      display: block
+      margin: 45px -40px 40px
+      box-shadow: 0 -1px 0 0 rgb(218, 218, 218)
+  & > .is-pulled-right
+    position: relative
+    z-index: 2
+  & > .name
+    color: $base-font-color
+    font-size: 20px
+    line-height: 26px
+    position: relative
+    margin-bottom: $space-md
+    word-wrap: break-word
+    .code-name
+      font-family: $code-font-family
+      display: block
+      font-size: 25px
+      line-height: 30px
+      margin-top: 8px
+      &:first-child
+        margin-left: 0
+    .tag
+      position: relative
+      top: -1px
+      margin-right: 3px
+    .href-link
+      color: $base-font-color
+      position: absolute
+      padding: 1px
+      left: -20px
+      top: 0
+      bottom: 0
+      width: 21px
+      opacity: 0
+    &:hover .href-link
+      opacity: 1
+  h5
+    font-size: 20px
+  & > .description
+    p
+      font-size: $method-parameter-font-size
+      margin: $space-lg 0
+    margin-bottom: 25px
+    

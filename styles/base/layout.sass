@@ -1,0 +1,71 @@
+
+:target 
+  scroll-margin-top: 23px
+
+html
+  height: 100%
+  width: 100%
+
+body
+  font-family: $base-font-family
+  font-size: $base-font-size
+  position: relative
+  height: 100%
+  width: 100%
+  overflow-x: hidden
+
+  &.small-header
+    .top-nav
+      height: $main-nav-height-mobile
+    #main
+      padding-top: $main-nav-height-mobile
+
+.top-nav
+  height: $main-nav-height
+  @include until($desktop)
+    height: $main-nav-height-mobile
+  
+#main
+  height: 100%
+  display: flex
+  flex-direction: row
+  background: $bg
+  padding-top: $main-nav-height
+  overflow-x: hidden
+  width: 100%
+  @include until($desktop)
+    padding-top: $main-nav-height-mobile
+  & > .sidebar
+    padding: 40px 30px
+    flex-grow: 0
+    flex-shrink: 0
+    width: $sidebar-width
+    border-right: 1px solid $primary100
+    height: 100%
+    overflow: auto
+    background-color: $primary100
+    box-shadow: 27px 41px 20px -25px rgba(97, 97, 97, 0.74)
+    
+    &.tutorials
+      width: $sidebar-width
+  
+  & > .core
+    padding: 28px
+    height: 100%
+    overflow: auto
+    flex-grow: 1
+    @include until($tablet)
+      padding: 0px
+    & > .content
+      background: transparent
+      padding: 0px 40px
+      border-radius: 4px
+      box-shadow: none
+  & > .side-nav
+    width: $right-sidebar-width
+    padding: 40px 20px
+    flex-grow: 0
+    flex-shrink: 0
+    height: 100%
+    overflow: auto
+  

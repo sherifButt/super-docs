@@ -1,0 +1,30 @@
+.table-container
+  &:not(:last-child)
+    margin: 2em 0
+    border-radius: 10px
+    box-shadow: 0 31px 17px -19px rgba(147, 147, 147, 0.44)
+    border: 1px color(srgb 0.93 0.93 0.93) solid
+table.params, table.props
+  line-height: $table-line-height
+  thead 
+    border: none
+    th
+      font-weight: normal
+      padding: $space-md $space-xl
+  tr
+    border: none
+  td
+    padding: $space-md $space-xl
+  td.name code
+    background: transparent
+    padding: 0
+    font-size: 15px
+    color: $base-font-color
+
+  @for $i from 1 through 10
+    tr.deep-level-#{$i}
+      background: darken(#fff, $i * 2)
+      .name code
+        padding-left: 25px
+        margin-left: #{($i - 1)*25}px
+        border-left: 1px solid #DEE1E5

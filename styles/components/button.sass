@@ -1,0 +1,43 @@
+.button
+  transition: all 0.2s
+  border-radius: $border-radius-sm
+  padding: $space-md $space-xl
+  height: 36px
+  margin-top: $space-md
+  border-color: $primary80
+  color: $light-grey
+  background-color: $primary100
+  &::after
+    content: "→"
+    display: table
+    clear: both
+    margin-left: $space-md
+    margin-top: $space-xs
+  &:hover
+    color: $secondary100
+    border-color: $primary100
+    transition: all 0.2s
+    box-shadow: $button-shadow
+
+  &.is-primary
+    background-color: $primary100
+    &:hover
+      background-color: $hoverBg
+    &.is-outlined
+      border-color: $primary100
+      color: $primary100
+      &:hover
+        border-color: $hoverBg
+        color: $hoverBg
+        background: transparent
+  
+  &.is-success
+    background: #69D6D4
+
+  &.is-white.is-outlined
+    background: transparent
+    border-color: $white
+
+  & > i:first-child
+    margin-right: $space-md
+    margin-left: -$space-md
