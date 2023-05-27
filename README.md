@@ -1,42 +1,29 @@
-<img src="./readme/logo.png" />
-![logo](/readme/logo.png)
+
+# Super Docs theme for JsDocs
 
 Documentation toolbox for your **javascript** / **typescript** projects based on JSDoc3 with **@category**, **@component** and **@optional** plugins.
 
-This is how it looks:
+<div class='mdc'>
+<div class='ic'>
 
-<table>
-  <tr>
-    <td>
-      <a href='./readme/class.png'><img src="./readme/class.png" style="width: 300px"/></a>
-    </td>
-    <td>
-      <a href='./readme/with-mermaid.png'><img src="./readme/with-mermaid.png" style="width: 300px"/></a>
-    </td>
-    <td>
-      <a href='./readme/component.png'><img src="./readme/component.png" style="width: 300px"/></a>
-    </td>
-  </tr>
-</table>
-
-# Example
+## Example
 
 Example documentation can be found here: https://softwarebrothers.github.io/example-design-system/index.html
 
-# OpenSource sherifButt community
+## OpenSource sherifButt community
 
 - [Join the community](https://join.slack.com/t/adminbro/shared_invite/zt-czfb79t1-0U7pn_KCqd5Ts~lbJK0_RA) to get help and be inspired.
 - subscribe to our [newsletter](http://opensource.softwarebrothers.co)
 
-# Installation
+## Installation
 
 ```sh
 npm install --save-dev super-docs
 ```
 
-# Theme Usage
+## Theme Usage
 
-## With command line
+### With command line
 
 Assuming that you have [jsdoc](https://github.com/jsdoc/jsdoc) installed globally:
 
@@ -44,7 +31,7 @@ Assuming that you have [jsdoc](https://github.com/jsdoc/jsdoc) installed globall
 jsdoc your-documented-file.js -t ./node_modules/super-docs
 ```
 
-## With npm and configuration file
+### With npm and configuration file
 
 In your projects package.json file - add a new script:
 
@@ -62,11 +49,11 @@ in your `jsdoc.json` file, set the template:
 }
 ```
 
-# TypeScript support
+## TypeScript support
 
 super-docs has a plugin which allows you to generate documentation from your TypeScript codebase.
 
-## Usage
+### Usage
 
 To use it update your `jsdoc.json` file
 
@@ -86,7 +73,7 @@ To use it update your `jsdoc.json` file
 
 And now you can run your `jsdoc` command and parse TypeScript files.
 
-## How it works?
+### How it works?
 
 It performs 4 operations:
 
@@ -101,7 +88,7 @@ Furthermore it:
 
 so they can be printed by JSDoc automatically.
 
-## Examples
+### Examples
 
 ```
 /**
@@ -216,11 +203,11 @@ class ClassName {
 }
 ```
 
-# @category plugin
+## @category plugin
 
 super-docs also allows you to nest your documentation into categories and subcategories in the sidebar menu.
 
-## Usage
+### Usage
 
 To add a plugin - update `plugins` section in your `jsdoc.json` file:
 
@@ -248,11 +235,11 @@ class YourClass {
 }
 ```
 
-# @component plugin [BETA]
+## @component plugin [BETA]
 
 Super-docs also allows you to document your [React](https://reactjs.org/) and [Vue](https://vuejs.org/) components automatically. The only thing you have to do is to add a `@component` tag. It will take all props from your components and along with an `@example` tag - will generate a __live preview__.
 
-## Installation instructions
+### Installation instructions
 
 Similar as before to add a plugin - you have to update the `plugins` section in your `jsdoc.json` file:
 
@@ -270,14 +257,14 @@ Similar as before to add a plugin - you have to update the `plugins` section in 
 Since __component__ plugin uses [parcel](https://parceljs.org) as a bundler you have to install it globally. To do this run:
 
 ```
-# if you use npm
+## if you use npm
 npm install -g parcel-bundler
 
-# or yarn
+## or yarn
 yarn global add parcel-bundler
 ```
 
-## Usage
+### Usage
 
 To document components simply add `@component` in your JSDoc documentation:
 
@@ -331,7 +318,7 @@ export default {
 
 In this case, props will be taken from `props` property.
 
-## Preview
+### Preview
 
 `@component` plugin also modifies the behaviour of `@example` tag in a way that it can generate an actual __component preview__. What you have to do is to add an `@example` tag and return component from it:
 
@@ -403,7 +390,7 @@ You can put as many `@example` tags as you like in one component and "caption" e
  */
 ```
 
-## Mixing components in preview
+### Mixing components in preview
 
 Also you can use multiple components which are documented with `@component` tag together. So lets say you have 2 components and in the second component you want to use the first one as a wrapper like this:
 
@@ -431,7 +418,7 @@ const Component1 = (props) => {...}
 const Component2 = (props) => {...}
 ```
 
-## Wrapper component [only React]
+### Wrapper component [only React]
 
 Most probably your components will have to be run within a particular context, like within redux store provider or with custom CSS libraries.
 You can simulate this by passing a `component.wrapper` in your `jsdoc.json`:
@@ -482,7 +469,7 @@ const Component = (props) => {
 export default Component
 ```
 
-## Styling React examples
+### Styling React examples
 
 Super-docs inserts all examples within an `iframe`. This results in the following styling options:
 
@@ -522,7 +509,7 @@ const Component = (props) => {
 export default Component
 ```
 
-## Adding commands to bundle entry file
+### Adding commands to bundle entry file
 
 `@component` plugin creates an entry file: `.entry.js` in your _docs_ output folder. Sometimes you might want to add something to it. You can do this by passing: `component.entry` option, which is an array of strings.
 
@@ -547,7 +534,7 @@ So let's say you want to add `babel-polyfill` and 'bulma.css' framework to your 
 }
 ```
 
-# Customization
+## Customization
 
 First of all, let me state that super-docs extends the `default` template. That is why default template parameters are also handled.
 
@@ -614,9 +601,9 @@ Example configuration file with settings for both `default` and `super-docs` tem
 }
 ```
 
-## Extras
+### Extras
 
-### typedef(import(...))
+#### typedef(import(...))
 
 super-docs also has one extra plugin for handling typescript'like types imports like (it has to be one-liner):
 
@@ -632,7 +619,7 @@ It simply removes that from the code so JSDoc wont throw an error. In order to u
     ],
 ```
 
-# Setting up for the development
+## Setting up for the development
 
 If you want to change the theme locally follow the steps:
 
@@ -656,7 +643,7 @@ cd super-docs
 
 npm install
 
-# or
+## or
 
 yarn
 ```
@@ -676,18 +663,18 @@ DOCS_COMMAND='npm run docs' DOCS=../src/**/*,../config/**/* DOCS_OUTPUT=../docs 
 
 The script should launch the browser and refresh it whenever you change something in the template or in `DOCS`.
 
-# Setting up the jsdoc in your project
+## Setting up the jsdoc in your project
 
 If you want to see how to setup jsdoc in your project - take a look at these brief tutorials:
 
 - JSDoc - https://www.youtube.com/watch?v=Yl6WARA3IhQ
 - super-docs and Mermaid: https://www.youtube.com/watch?v=UBMYogTzsBk
 
-# License
+## License
 
 super-docs is Copyright © 2019 sherifButt.co. It is free software and may be redistributed under the terms specified in the [LICENSE](LICENSE) file - MIT.
 
-# About sherifButt.co
+## About sherifButt.co
 
 <img src="https://softwarebrothers.co/assets/images/software-brothers-logo-full.svg" width=240>
 

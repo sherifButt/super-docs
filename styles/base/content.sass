@@ -18,6 +18,8 @@
       margin-bottom: 0px
       padding-bottom: 0px
       border-bottom: none
+      @include until($tablet)
+        font-size: if($header-font-family == 'Kenoky Light', $header-font-size-mobile, 72px)
   header p
     font-size: 20px
 
@@ -105,4 +107,20 @@
 .chart-caption
   margin-top: 20px
         
+.mdc 
+  display: flex
+  justify-content: space-between
+  align-items: center
+  column-gap: 20px
+  .ic 
+    flex: 1
+    margin: 10px
+    img 
+      width: 100%
+      height: auto
+  
+@media only screen and (max-width: 600px) 
+    .mdc
+      display: block
+      flex-direction: column
     
