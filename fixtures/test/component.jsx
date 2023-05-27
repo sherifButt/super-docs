@@ -10,7 +10,7 @@ const Bold = styled.div`
 
 /**
  * Some documented component
- * @function Documented
+ * 
  * @component
  * @example <caption>Default example</caption>
  * const text = 'Meva'

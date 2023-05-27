@@ -1,5 +1,5 @@
 
-<img src="./readme/logo.png" style='margin:auto'/>
+<img src="./readme/logo.png"/>
 # Super Docs theme for JsDocs
 
 Documentation toolbox for your **javascript** / **typescript** projects based on JSDoc3 with **@category**, **@component** and **@optional** plugins.
