@@ -6,11 +6,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?js= superDocs.title ?> <?js= title ?></title>
-<?js if (env.conf.templates.favicon) { ?>
-<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <?js if (env.conf.templates.favicon) { ?>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="shortcut icon" type="<?js= env.conf.templates.faviconType ?>" href="<?js= env.conf.templates.favicon ?>"/>
     <link rel="icon" type="<?js= env.conf.templates.faviconType ?>" href="<?js= env.conf.templates.favicon ?>"/>
-    <?js } ?>
+  <?js } ?>
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script src="./build/entry.js"></script>
@@ -21,6 +21,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Muli&family=Libre+Barcode+39+Text&family=Anton&family=Fira+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui.css" />
   <link type="text/css" rel="stylesheet" href="styles/app.min.css">
   <link type="text/css" rel="stylesheet" href="styles/iframe.css">
   <link type="text/css" rel="stylesheet" href="<?js= superDocs.css ?>">

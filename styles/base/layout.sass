@@ -59,6 +59,8 @@ body
     & > .content
       background: transparent
       padding: 0px 40px
+      @include until($tablet)
+        padding: 0px 20px
       border-radius: 4px
       box-shadow: none
   & > .side-nav

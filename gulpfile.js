@@ -62,3 +62,4 @@ gulp.task('sync', () => {
 
 gulp.task('default', gulp.series(['sass', 'js', 'docs', gulp.parallel(['watch', 'sync'])]))
 
+

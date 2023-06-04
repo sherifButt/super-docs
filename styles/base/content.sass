@@ -7,6 +7,8 @@
     margin-right: 3px
     font-style: italic
   header.page-title
+    @include until($tablet)
+      margin-top: 20px
     p
       font-size: 13px
       margin: 0 0 5px
@@ -20,6 +22,7 @@
       border-bottom: none
       @include until($tablet)
         font-size: if($header-font-family == 'Kenoky Light', $header-font-size-mobile, 72px)
+        line-height: .5em
   header p
     font-size: 20px
 
@@ -27,7 +30,6 @@
     height: auto
     max-width: 100%
     border-radius: $border-radius-md
-    background-color: rgb(73, 78, 89)
     margin: 2em 0
   h1
     font-family: $subheader-font-family

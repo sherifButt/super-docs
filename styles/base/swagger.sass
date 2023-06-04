@@ -1,0 +1,166 @@
+.swagger-ui
+    .btn.authorize 
+        border-color: red
+        svg
+            fill: white
+            width: 18px
+            height: 18px
+        span
+            padding: 0px 20px 0 0
+    .scheme-container 
+        .schemes
+            @include until($tablet)
+               display: inline-grid !important
+               > *
+                    margin-top: 12px
+    .auth-wrapper
+        .authorize
+            transition: all .2s
+            border-radius: 6px
+            padding: 8px 24px
+            height: 39px
+            border-color: rgba(50,54,63,.7)
+            color: #eee
+            background-color: #32363f
+            border-color: none
+            font-size: 18px
+            font-weight: 300
+            @include until($tablet)
+                padding-right: 20px
+                width: 100%
+                margin-left: 0px
+                margin-right: 0px
+                
+    table.model 
+        tr.property-row.required 
+            td:first-child
+                font-weight: 300
+                font-size: 1.5em
+
+    .model-box 
+        background: rgba(0,0,0,.1)
+        border-radius: 4px
+        display: inline-block
+        padding: 24px
+        width: 100%
+        margin-bottom: 20px
+        font-size: 16px !important
+    .wrapper
+        max-width: 100% !important
+        padding: 0px !important
+    table 
+        tbody 
+            tr 
+                td:first-of-type
+                    min-width: 6em
+                    padding: 17px 0 8px
+                    font-size: 1.5em
+                    font-weight: lighter
+                    font-family: 'Inconsolata', monospace
+                    @include until($tablet)
+                        font-size: 1.2em
+                        padding: 23px 0 5px
+                        min-width: 2.5em
+    p
+        font-family: $base-font-family !important
+        font-waight: 200 !important
+    .opblock-tag
+        font-family: "Helvetica Neue",sans-serif
+        font-size: $subheader-font-size
+        font-weight: 200
+        border-bottom: 1px solid $border
+        padding: 10px
+        margin: 0px
+    .opblock
+        border-radius: $border-radius-md !important
+        box-shadow: none !important
+        .opblock-summary-method
+            border-radius: $border-radius-sm !important
+        .opblock-section-header
+            background: hsla(52.23, 0%, 55%, 0.1)
+    .auth-container 
+        input[type=password], input[type=text]
+            width: 100%
+            border-radius: $border-radius-sm
+            font-size: 16px
+            max-width: 100%
+    .dialog-ux 
+        .modal-ux
+            border-radius: $border-radius-md !important
+            @include until($tablet)
+                border-width: 0px !important
+    select
+        padding: 10px 34px 10px 10px
+        box-shadow: none
+        border-radius: $border-radius-sm
+        border: 2px solid #e7e7e7
+        font-weight: 400
+    .button.authorize
+        border-color: #49cc90
+        margin-left: 10px
+        margin-right: 10px
+        padding-right: 20px
+        border-radius: $border-radius-sm
+        display: inline-flex
+    .btn
+        border-radius: $border-radius-sm
+        box-shadow: none
+        transition: all .2s
+        border-radius: 6px
+        padding: 8px 24px
+        height: 39px
+        border-color: rgba(50,54,63,.7)
+        color: #eee
+        background-color: #32363f
+        border-color: none
+        font-size: 18px
+        font-weight: 300
+    .content li+li
+        margin-top: 0
+    .model-box
+        border-radius: $border-radius-md !important
+    .highlight-code>.microlight
+        margin-bottom: 20px !important
+    code
+        color: $grey
+    pre
+        border-radius: $border-radius-md !important
+        padding: 41px 29px 15px !important
+    .info
+        margin:  20px 0
+        .title
+            font-family: $subheader-font-family
+            font-size: $header-content-font-size
+            font-weight: lighter
+            margin: $space-md 0
+            text-shadow: $header-text-shadow
+            border-bottom: 1px lightgray solid
+            margin-bottom: 11px
+            padding-bottom: 15px
+            @include until($tablet)
+                font-size: $header-font-size-mobile
+                line-height: 40px
+            .small
+                border-radius: 6px
+            small
+                top: 7px !important
+            pre
+                border-radius: 0px !important
+                // remove all styles from pre
+                padding: 0px !important
+                margin: 0px !important
+                background: transparent !important
+                box-shadow: none !important
+                font-size: $base-font-size !important
+                line-height: 21px
+                &:after
+                    content: none !important
+                &::before
+                    content: none !important
+        a
+            color: $barCode
+
+    .scheme-container
+        background: transparent
+        box-shadow: none
+        padding: 10px

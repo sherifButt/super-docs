@@ -24,6 +24,7 @@ var view
 
 var outdir = path.normalize(env.opts.destination)
 
+
 function find(spec) {
   return helper.find(data, spec)
 }
@@ -52,6 +53,7 @@ function hashToLink(doclet, hash) {
 
   return '<a href="' + url + '">' + hash + '</a>'
 }
+
 
 function needsSignature(doclet) {
   var needsSig = false
@@ -190,6 +192,7 @@ function addSignatureReturns(f) {
         '<span class="type-signature">' + returnTypesString + '</span>'
 }
 
+
 function addSignatureTypes(f) {
   var types = f.type ? buildItemTypeStrings(f) : []
 
@@ -313,7 +316,20 @@ function attachModuleSymbols(doclets, modules) {
     }
   })
 }
-
+/**
+ * @description Build the navigation sidebar.
+ * @function buildMemberNav  
+ * @param {*} items  The items to build the navigation for. 
+ * @param {*} itemHeading  The heading to use for the items.
+ * @param {*} itemsSeen  A dictionary of items that have already been seen. 
+ * @param {*} linktoFn  The function to use to create links.
+ * @returns  The HTML for the navigation sidebar.
+ * @private
+ * @memberof module:jsdoc/templateHelper
+ * @example
+ * buildMemberNav(items, itemHeading, itemsSeen, linktoFn)
+ * 
+ */
 function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
   const subCategories = items.reduce((memo, item) => {
     const subCategory = item.subCategory || ''
@@ -379,14 +395,45 @@ function buildMemberNav(items, itemHeading, itemsSeen, linktoFn) {
   return nav
 }
 
+/**
+ * @description Create a link to a tutorial.
+ * @function linktoTutorial
+ * @param {String} longName  The long name of the tutorial.
+ * @param {String} name  The name of the tutorial.
+ * @returns  The HTML for the link.
+ */
 function linktoTutorial(longName, name) {
   return tutoriallink(name)
 }
-
+/**
+ *  @description Create a link to an external.
+ * @function linktoExternal
+ * @param {Stirng} longName  The long name of the external.
+ * @param {String} name  The name of the external.
+ * @return  The HTML for the link. 
+ */
 function linktoExternal(longName, name) {
   return linkto(longName, name.replace(/(^"|"$)/g, ''))
 }
 
+/**
+ * Create a link to a tutorial.
+ * @param {Object} members  The members that will be used to create the sidebar.
+ * @param {array<object>} members.classes The classes that will be used to create the sidebar.
+ * @param {array<object>} members.components The components that will be used to create the sidebar.
+ * @param {array<object>} members.externals The externals that will be used to create the sidebar.
+ * @param {array<object>} members.globals The globals that will be used to create the sidebar.
+ * @param {array<object>} members.mixins The mixins that will be used to create the sidebar.
+ * @param {array<object>} members.modules The modules that will be used to create the sidebar.
+ * @param {array<object>} members.namespaces The namespaces that will be used to create the sidebar.
+ * @param {array<object>} members.tutorials The tutorials that will be used to create the sidebar.
+ * @param {array<object>} members.events The events that will be used to create the sidebar.
+ * @param {array<object>} members.interfaces The interfaces that will be used to create the sidebar.
+ * @param {Object} title  The title of the sidebar.
+ * @return {String} The HTML for the navigation sidebar.
+ * @example 
+ * buildGroupNav(members, title)
+ */
 function buildGroupNav (members, title) {
   var globalNav
   var seenTutorials = {}
@@ -445,8 +492,9 @@ function buildGroupNav (members, title) {
  */
 function buildNav(members, navTypes = null, superDocs) {
   const href = superDocs.landing ? 'docs.html' : 'index.html'
-  const chnagelog = superDocs.changelog && fs.existsSync(superDocs.changelog, 'utf8') ? '<h2><a href="changelog.html">Changelog</a></h2> ' : ''
-  var nav = navTypes ? '' : `<h2><a href="${href}">Documentation</a></h2> ${chnagelog}`
+  const changelog = superDocs.changelog && fs.existsSync(superDocs.changelog, 'utf8') ? '<h2><a href="changelog.html">LOG</a></h2> ' : ''
+  const swagger = superDocs.swagger && fs.existsSync(superDocs.swagger, 'utf8') ? '<h2><a href="swagger.html">API</a></h2> ' : ''
+  var nav = navTypes ? '' : `<h2><a href="${href}">Documentation</a></h2> ${changelog} ${swagger}`
 
   var categorised = {}
   var rootScope = {}
@@ -583,6 +631,21 @@ exports.publish = function(taffyData, opts, tutorials) {
     outdir = path.join( outdir, packageInfo.name, (packageInfo.version || '') )
   }
   fs.mkPath(outdir)
+
+  // if superDocs.swagger is set, convert swagger.js to config/swagger.json and save it to static
+  if (conf.superDocs.swagger) {
+    const swagger = require(path.resolve(env.pwd, conf.superDocs.swagger))
+    
+    const swaggerJson = JSON.stringify(swagger, null, 2)
+    // fs.writeFileSync(path.join(outdir, 'swagger.json'), swaggerJson, 'utf8')
+    // save  swagger.json to static/config/swagger.json
+    fs.mkPath(path.join(outdir, 'config'))
+    fs.writeFileSync(path.join(outdir, 'config/swagger.json'), swaggerJson, 'utf8')
+
+
+
+  }
+  
 
   // copy the template's static files to outdir
   fromDir = path.join(templatePath, 'static')
@@ -867,5 +930,34 @@ exports.publish = function(taffyData, opts, tutorials) {
 
   if (conf.superDocs.changelog && fs.existsSync(conf.superDocs.changelog, 'utf8')) {
     saveChangeLogPage()
+  }
+
+  function saveSwaggerPage() {
+    const content = fs.readFileSync(conf.superDocs.swagger, 'utf8')
+    
+    var swaggerPageData = {
+      title: ' API',
+      subtitle: 'swagger',
+      content:markdownParser(content),
+    }
+    
+    var swaggerPath = path.join(outdir, 'swagger.html')
+    var docsPath = path.join(outdir, 'docs.html')
+    
+    // fs.renameSync(swaggerPath, docsPath)
+    
+    view.layout = 'layout.tmpl'
+    var html = view.render('swagger.tmpl', swaggerPageData)
+   
+
+    // yes, you can use {@link} in tutorials too!
+    html = helper.resolveLinks(html) // turn {@link foo} into <a href="foodoc.html">foo</a>
+
+    fs.writeFileSync(swaggerPath, html, 'utf8')
+
+  }
+
+  if (conf.superDocs.swagger && fs.existsSync(conf.superDocs.swagger, 'utf8')) {
+    saveSwaggerPage()
   }
 }

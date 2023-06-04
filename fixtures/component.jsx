@@ -10,6 +10,17 @@ const Bold = styled.div`
 
 /**
  * Some documented component
+ *
+ * @component Test
+ * @example
+ *  <Test size=‘4’/>
+ */
+const Test = ({size}) =>(
+  <Box size={size}> </Box> 
+)
+
+/**
+ * Some documented component
  * @function Documented
  * @component
  * @example <caption>Default example</caption>

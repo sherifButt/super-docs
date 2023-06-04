@@ -1,20 +1,26 @@
+
+<img src="./readme/logo.png"/>
 # Super Docs theme for JsDocs
 
 Documentation toolbox for your **javascript** / **typescript** projects based on JSDoc3 with **@category**, **@component** and **@optional** plugins.
 
 This how it looks:
-<div class='mdc' >
+<table >
+  <tr class='mdc'>
+    <td class='ic'>
+      <a href='./readme/class.png'><img src="./readme/class.png" style="width: 300px"/></a>
+    </td>
+    <td class='ic'>
+      <a href='./readme/with-mermaid.png'><img src="./readme/with-mermaid.png" style="width: 300px"/></a>
+    </td>
+    <td class='ic'>
+      <a href='./readme/component.png'><img src="./readme/component.png" style="width: 300px"/></a>
+    </td>
+  </tr>
+</table>
+
+<div class='mdc'>
 <div class='ic'>
-
-![mobile version change log page](images/class.png 'mobile version mockup')
-
-</div>
-<div class='ic'>
-
-![pc version/ with mermaid](images/with-mermaid.png 'pc version with mermaid integration')
-
-</div>
-</div>
 
 ## Example
 

@@ -46,7 +46,15 @@
                         href="<?js= superDocs.changelog ? 'changelog.html' : 'index.html' ?>"
                         class="link"
                     >
-                       Change Log
+                      LOG
+                    </a>
+                <?js }?>
+                <?js if(superDocs.swagger) {?>
+                    <a
+                        href="<?js= superDocs.swagger ? 'swagger.html' : 'index.html' ?>"
+                        class="link"
+                    >
+                       API
                     </a>
                 <?js }?>
                 <?js if (this.tutorials.length) { ?>
