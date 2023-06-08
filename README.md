@@ -24,7 +24,7 @@ Documentation toolbox for your **javascript** / **typescript** projects based on
 12. [License](#license)
 13. [About sherifButt.co](#about-sherifbuttco)
 
-### <a name="key-features">Key features:
+### <a name="key-features"></a>Key features:
 
 - Openapi Swagger documentation out of the box, with beautiful theme
 - Mermaid integration for flowcharts, sequence diagrams and more
