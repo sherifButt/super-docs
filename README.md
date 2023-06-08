@@ -276,7 +276,7 @@ class YourClass {
 }
 ```
 
-## <a name="customization">Customization
+## <a name="customization"></a>Customization
 
 First of all, let me state that super-docs extends the `default` template. That is why default template parameters are also handled.
 
@@ -343,7 +343,7 @@ Example configuration file with settings for both `default` and `super-docs` tem
 }
 ```
 
-### <a name="explanation-of-key-fields">Explanation of Key Fields
+### <a name="explanation-of-key-fields"></a>Explanation of Key Fields
 
 Sure, here's the information converted into a markdown table:
 
@@ -373,7 +373,7 @@ Sure, here's the information converted into a markdown table:
 
 Please ensure that all paths and settings are correctly configured for your project's structure and requirements.
 
-### <a name="extras">Extras
+### <a name="extras"></a>Extras
 
 #### <a name="typedefimport"></a>typedef(import(...))
 
@@ -444,7 +444,7 @@ If you want to see how to setup jsdoc in your project - take a look at these bri
 - JSDoc - https://www.youtube.com/watch?v=Yl6WARA3IhQ
 - super-docs and Mermaid: https://www.youtube.com/watch?v=UBMYogTzsBk
 
-## <a name="automatically-generate-jsdocs-before-pushing-to-github"> generate JSDocs before pushing to github
+## <a name="automatically-generate-jsdocs-before-pushing-to-github"></a> generate JSDocs before pushing to github
 
  You can use Git hooks, specifically a `pre-push` hook, to automate the generation of JSDocs each time you push your changes. This will ensure that your documentation is always up to date with your latest changes. Git hooks are scripts that Git executes before or after events such as `commit`, `push`, and so forth.
 

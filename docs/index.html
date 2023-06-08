@@ -391,7 +391,7 @@ class YourClass {
   ....
 }
 </code></pre>
-<h2><a name="customization">Customization</h2>
+<h2><a name="customization"></a>Customization</h2>
 <p>First of all, let me state that super-docs extends the <code>default</code> template. That is why default template parameters are also handled.</p>
 <p>[BETA]: You must explicitly set the <code>search</code> option of the <code>default</code> template to <code>true</code> to enable search</p>
 <p>To customize the super-docs pass <code>options</code> to <code>templates['super-docs']</code>. section in your <code>jsdoc configuration file</code>.</p>
@@ -451,7 +451,7 @@ class YourClass {
     }
 }
 </code></pre>
-<h3><a name="explanation-of-key-fields">Explanation of Key Fields</h3>
+<h3><a name="explanation-of-key-fields"></a>Explanation of Key Fields</h3>
 <p>Sure, here's the information converted into a markdown table:</p>
 <table>
 <thead>
@@ -548,7 +548,7 @@ class YourClass {
 </tbody>
 </table>
 <p>Please ensure that all paths and settings are correctly configured for your project's structure and requirements.</p>
-<h3><a name="extras">Extras</h3>
+<h3><a name="extras"></a>Extras</h3>
 <h4><a name="typedefimport"></a>typedef(import(...))</h4>
 <p>super-docs also has one extra plugin for handling typescript'like types imports like (it has to be one-liner):</p>
 <pre class="prettyprint source"><code>/** @typedef {import('./some-other-file').ExportedType} ExportedType */
@@ -599,7 +599,7 @@ DOCS_COMMAND='npm run docs' DOCS=../src/**/*,../config/**/* DOCS_OUTPUT=../docs 
 <li>JSDoc - https://www.youtube.com/watch?v=Yl6WARA3IhQ</li>
 <li>super-docs and Mermaid: https://www.youtube.com/watch?v=UBMYogTzsBk</li>
 </ul>
-<h2><a name="automatically-generate-jsdocs-before-pushing-to-github"> generate JSDocs before pushing to github</h2>
+<h2><a name="automatically-generate-jsdocs-before-pushing-to-github"></a> generate JSDocs before pushing to github</h2>
 <p>You can use Git hooks, specifically a <code>pre-push</code> hook, to automate the generation of JSDocs each time you push your changes. This will ensure that your documentation is always up to date with your latest changes. Git hooks are scripts that Git executes before or after events such as <code>commit</code>, <code>push</code>, and so forth.</p>
 <pre><code>Here's an example of how you could use a Git `pre-push` hook to generate your documentation:
 
