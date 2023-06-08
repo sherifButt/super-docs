@@ -22,7 +22,8 @@
       border-bottom: none
       @include until($tablet)
         font-size: if($header-font-family == 'Kenoky Light', $header-font-size-mobile, 72px)
-        line-height: .5em
+        line-height: 1em
+        word-wrap: anywhere
   header p
     font-size: 20px
 
@@ -52,7 +53,7 @@
     line-height: 48px
     font-weight: 400
     margin-bottom: 26px
-  
+
   h3, h4, h5, h6
     font-family: $subheader-font-family
     font-weight: 900
@@ -64,42 +65,42 @@
     border-radius: $border-radius-sm
 
   pre
-    position: relative
-    font-family: $code-font-family
-    border-radius: $border-radius-md
-    padding: 20px
-    padding-top: 45px
-    background-color: $codeBg
-    box-shadow: $element-shadow
-    margin: 2em 0
-    &::before
-      content: ""
-      position: absolute
-      top: 0
-      left: 0
-      width: 100%
-      height: 25px
-      background-color: lightgray
-      border-top-left-radius: 10px
-      border-top-right-radius: 10px
-    &::after
-      content: "•••"
-      position: absolute
-      top: 5px
-      left: 26px
-      color: $codeBg
-      scale: 3
-  
+    border-radius: 0 0 $border-radius-md $border-radius-md
+    // position: relative
+    // font-family: $code-font-family
+    // border-radius: $border-radius-md
+    // padding: 20px
+    // padding-top: 45px
+    // background-color: $preBg
+    // box-shadow: $element-shadow
+    // margin: 2em 0
+    // &::before
+    //   content: ""
+    //   position: absolute
+    //   top: 0
+    //   left: 0
+    //   width: 100%
+    //   height: 25px
+    //   background-color: lightgray
+    //   border-top-left-radius: 10px
+    //   border-top-right-radius: 10px
+    // &::after
+    //   content: "•••"
+    //   position: absolute
+    //   top: 5px
+    //   left: 26px
+    //   color: $preBg
+    //   scale: 2.5
+
   .container-overview .prettyprint:last-child
     margin-bottom: 50px
-  
+
   .vertical-section
     padding: $space-lg 0
 
 #main-content-wrapper
   @include until($desktop)
     padding: 0 30px
-
 
 .alt-text, .chart-caption
   font-size: $small-font-size
@@ -108,21 +109,22 @@
 
 .chart-caption
   margin-top: 20px
-        
-.mdc 
+
+.mdc
   display: flex
   justify-content: space-between
-  align-items: center
+  align-items: top
   column-gap: 20px
-  .ic 
+  .ic
     flex: 1
     margin: 10px
-    img 
+    @include until($tablet)
+      margin: 0px
+    img
       width: 100%
       height: auto
-  
-@media only screen and (max-width: 600px) 
-    .mdc
-      display: block
-      flex-direction: column
-    
+
+@media only screen and (max-width: 600px)
+  .mdc
+    display: block
+    flex-direction: column

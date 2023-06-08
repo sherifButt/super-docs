@@ -1,12 +1,18 @@
-# Memory Extension Web App
+# <a id="memory-extension-web-app"></a>Memory Extension Web App
 This project aims to simulate human memory processes to provide long-term memory support for ChatGPT, particularly when dealing with complex tasks such as coding a large application.
+
+- [Memory Extension Web App](#memory-extension-web-app)
+- [How to send?](#how-to-send)
+- [Examples](#examples)
+- [Target Audience](#target-audience)
+- [License](#license)
+
+### <a id="how-to-send"></a>How to send?
+
+particularly when dealing with complex tasks such as coding a large application.
 
 <div class='mdc'>
 <div class='ic'>
-
-### How to send?
-
-particularly when dealing with complex tasks such as coding a large application.
 
 ```javascript
 function hashToLink(doclet, hash) {
@@ -24,9 +30,7 @@ function hashToLink(doclet, hash) {
 ```
 
 </div>
-
 <div class='ic'>
-
 
 ```mermaid
 ---
@@ -54,10 +58,12 @@ Ugh ok      : 6d
 | Codecademy Tee    |  False   | 19.99 |
 | Codecademy Hoodie |  False   | 42.99 |
 
-## Examples
+## <a id="examples"></a>Examples
+
+<div class="mdc">
+<div calss="ic">
 
 Here are some examples of how to use this project:
-
 
 - To authenticate a user, use the NextAuth library.
 - To manage state, use the Redux RTK Query library.
@@ -65,11 +71,8 @@ Here are some examples of how to use this project:
 - To store data, use the PostgreSQL database.
 - To document the API, use the Swagger library.
 
-## Target Audience
-
-This project is intended for developers who use ChatGPT and need long-term memory support for complex tasks such as coding a large application.
-
-## chart
+</div>
+<div class="ic" width="50%">
 
 ```mermaid
 sequenceDiagram
@@ -90,6 +93,15 @@ sequenceDiagram
     F-->>U: Returns CodeBlocks, cleanedResponse, noMarkdown
 ```
 
-## License
+</div>
+</div>
+
+## <a id="target-audience"></a>Target Audience
+
+This project is intended for developers who use ChatGPT and need long-term memory support for complex tasks such as coding a large application.
+
+
+
+## <a id="license">License
 
 This project is licensed under the MIT License. See the LICENSE file for details.

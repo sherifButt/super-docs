@@ -637,12 +637,9 @@ exports.publish = function(taffyData, opts, tutorials) {
     const swagger = require(path.resolve(env.pwd, conf.superDocs.swagger))
     
     const swaggerJson = JSON.stringify(swagger, null, 2)
-    // fs.writeFileSync(path.join(outdir, 'swagger.json'), swaggerJson, 'utf8')
     // save  swagger.json to static/config/swagger.json
     fs.mkPath(path.join(outdir, 'config'))
     fs.writeFileSync(path.join(outdir, 'config/swagger.json'), swaggerJson, 'utf8')
-
-
 
   }
   
@@ -791,7 +788,7 @@ exports.publish = function(taffyData, opts, tutorials) {
   files = find({kind: 'file'})
   packages = find({kind: 'package'})
 
-  generate('Home', '',
+  generate( conf.superDocs.title|| 'Home', '',
     packages.concat(
       [{
         kind: 'mainpage',
@@ -878,9 +875,10 @@ exports.publish = function(taffyData, opts, tutorials) {
 
   function saveLandingPage() {
     const content = fs.readFileSync(conf.superDocs.landing, 'utf8')
-        
+    const {title} = conf.superDocs
+
     var landingPageData = {
-      title: 'Home',
+      title: title|| 'Home',
       content,
     }
 
@@ -939,6 +937,7 @@ exports.publish = function(taffyData, opts, tutorials) {
       title: ' API',
       subtitle: 'swagger',
       content:markdownParser(content),
+      url: process.env.NODE_ENV === 'production'? conf.superDocs.productionServer||'' : conf.superDocs.developmentServer||''
     }
     
     var swaggerPath = path.join(outdir, 'swagger.html')

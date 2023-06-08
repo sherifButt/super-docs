@@ -3,26 +3,49 @@
         "allowUnknownTags": "all"
     },
     "source": {
-        "include": ["fixtures/typescript"],
-        "includePattern": "\\.(jsx|js|ts|tsx)$"
+        "include": [
+            "./","./fixtures/"
+        ],
+        "includePattern": "\\.(jsx|js|ts|tsx)$",
+        "excludePattern": "(./node_modules/)"
     },
     "plugins": [
         "plugins/markdown",
         "category",
-        "component",
         "typescript"
     ],
     "opts": {
         "encoding": "utf8",
         "destination": "docs/",
         "recurse": true,
-        "verbose": true,
+        "verbose": false,
         "template": "./",
-        "tutorials": "./fixtures/tutorials"
+        "tutorials": "./fixtures/tutorials",
+        "readme": "./README.md"
     },
     "templates": {
+        "search": true,
+        "cleverLinks": true,
+        "monospaceLinks": true,
+        "default": {
+            "staticFiles": {
+                "include": [
+                    "./static"
+                ]
+            }
+        },
+        "favicon": "./images/favicon.png",
         "super-docs": {
-            "name": "Sample Documentation"
+            "name": "Super Docs",
+            "logo": "images/logo.png",
+            "title": "Super docs",
+            "hideGenerator": true,
+            "favicon": "images/favicon.ico",
+            "faviconType": "image/x-icon",
+            "swagger": "./config/swagger.js",
+            "productionServer":"https://sherifbutt.github.io/super-docs-documentation/",
+            "developmentServer":"http://127.0.0.1:5500/docs/",
+            "changelog": "./CHANGELOG.md"
         }
     }
 }

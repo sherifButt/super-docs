@@ -15,9 +15,11 @@ var self = this;
     <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui-bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.18.3/swagger-ui-standalone-preset.js"></script>
     <script>
+    var url = JSON.parse('<?js= JSON.stringify(data.url) ?>');
     window.onload = function() {
         const ui = SwaggerUIBundle({
-            url: "config/swagger.json",
+             url: `${url?url:'./'}config/swagger.json`,
+        
             dom_id: '#swagger-ui',
             docExpansion: 'none',
             presets: [
@@ -28,4 +30,5 @@ var self = this;
         })
     }
     </script>
+
 <?js } ?>

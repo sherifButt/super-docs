@@ -1,6 +1,13 @@
 # Super Docs theme for JsDocs
 
-Documentation toolbox for your **javascript** / **typescript** projects based on JSDoc3 with **@category**, **@component** and **@optional** plugins.
+Documentation toolbox for your **javascript** / **typescript** projects based on JSDoc3 with **@category** and **@optional** plugins.
+
+### Key features:
+
+- Openapi Swagger documentation out of the box, with beautiful theme
+- Mermaid integration for flowcharts, sequence diagrams and more
+- markdown tutorial pages generator.
+- Responsive design
 
 This how it looks:
 <div class='mdc' >
@@ -18,12 +25,8 @@ This how it looks:
 
 ## Example
 
-Example documentation can be found here: https://softwarebrothers.github.io/example-design-system/index.html
+Example documentation can be found here: https://sherifbutt.github.io/super-docs-documentation/
 
-## OpenSource sherifButt community
-
-- [Join the community](https://join.slack.com/t/adminbro/shared_invite/zt-czfb79t1-0U7pn_KCqd5Ts~lbJK0_RA) to get help and be inspired.
-- subscribe to our [newsletter](http://opensource.softwarebrothers.co)
 
 ## Installation
 
@@ -37,19 +40,23 @@ npm install --save-dev super-docs
 
 Assuming that you have [jsdoc](https://github.com/jsdoc/jsdoc) installed globally:
 
-```
+```sh
 jsdoc your-documented-file.js -t ./node_modules/super-docs
 ```
 
 ### With npm and configuration file
+<div class="mdc">
+<div class="ic">
 
 In your projects package.json file - add a new script:
 
-```
+```json
 "script": {
   "docs": "jsdoc -c jsdoc.json"
 }
 ```
+</div>
+<div class="ic">
 
 in your `jsdoc.json` file, set the template:
 
@@ -58,6 +65,8 @@ in your `jsdoc.json` file, set the template:
   "template": "node_modules/super-docs"
 }
 ```
+</div>
+</div>
 
 ## TypeScript support
 
@@ -67,7 +76,7 @@ super-docs has a plugin which allows you to generate documentation from your Typ
 
 To use it update your `jsdoc.json` file
 
-```
+```json
 ...
 "tags": {
     "allowUnknownTags": ["optional"] //or true
@@ -87,20 +96,20 @@ And now you can run your `jsdoc` command and parse TypeScript files.
 
 It performs 4 operations:
 
-* First of all it transpiles all .ts and .tsx files to .js, so that all comments used by you are treated
+- First of all it transpilers all .ts and .tsx files to .js, so that all comments used by you are treated
 as a regular JSDoc comments.
 
 Furthermore it:
 
-* Converts all your commented `type` aliases to `@typedef`
-* Converts all your commented `interface` definitions to `@interface`,
-* Converts descriptions for your public, protected, static class members
+- Converts all your commented `type` aliases to `@typedef`
+- Converts all your commented `interface` definitions to `@interface`,
+- Converts descriptions for your public, protected, static class members
 
 so they can be printed by JSDoc automatically.
 
 ### Examples
 
-```
+```jsx
 /**
  * ActionRequest
  * @memberof Action
@@ -131,7 +140,7 @@ export type ActionRequest = {
 
 is converted to:
 
-```
+```javascript
 /**
  * ActionRequest'
  * @memberof Action'
@@ -147,7 +156,7 @@ is converted to:
 
 Also you can comment the interface in a similar fashion:
 
-```
+```typescript
 /**
  * JSON representation of an {@link Action}
  * @see Action
@@ -187,7 +196,7 @@ export default interface ActionJSON {
 
 or describe your class properties like that:
 
-```
+```js
 /**
  * Class name
  */
@@ -221,7 +230,7 @@ super-docs also allows you to nest your documentation into categories and subcat
 
 To add a plugin - update `plugins` section in your `jsdoc.json` file:
 
-```
+```json
 ...
 "tags": {
     "allowUnknownTags": ["category"] //or true
@@ -234,7 +243,7 @@ To add a plugin - update `plugins` section in your `jsdoc.json` file:
 
 and then you can use `@category` and/or `@subcategory` tag in your code:
 
-```
+```javascript
 /**
  * Class description
  * @category Category
@@ -242,305 +251,6 @@ and then you can use `@category` and/or `@subcategory` tag in your code:
  */
 class YourClass {
   ....
-}
-```
-
-## @component plugin [BETA]
-
-Super-docs also allows you to document your [React](https://reactjs.org/) and [Vue](https://vuejs.org/) components automatically. The only thing you have to do is to add a `@component` tag. It will take all props from your components and along with an `@example` tag - will generate a __live preview__.
-
-### Installation instructions
-
-Similar as before to add a plugin - you have to update the `plugins` section in your `jsdoc.json` file:
-
-```
-...
-"tags": {
-    "allowUnknownTags": ["component"] //or true
-},
-"plugins": [
-    "node_modules/super-docs/component"
-],
-...
-```
-
-Since __component__ plugin uses [parcel](https://parceljs.org) as a bundler you have to install it globally. To do this run:
-
-```
-## if you use npm
-npm install -g parcel-bundler
-
-## or yarn
-yarn global add parcel-bundler
-```
-
-### Usage
-
-To document components simply add `@component` in your JSDoc documentation:
-
-```jsx
-/**
- * Some documented component
- *
- * @component
- */
-const Documented = (props) => {
-  const { text } = props
-  return (
-    <div>{text}</div>
-  )
-}
-
-Documented.propTypes = {
-  /**
-   * Text is a text
-   */
-  text: PropTypes.string.isRequired,
-}
-
-export default Documented
-```
-
-The plugin will take the information from your [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html) and put them into an array.
-
-For Vue it looks similar:
-
-```vue
-<script>
-/**
- * @component
- */
-export default {
-  name: 'ExampleComponent',
-  props: {
-    spent: {
-      type: Number,
-      default: 30,
-    },
-    remaining: {
-      type: Number,
-      default: 40,
-    }
-  },
-}
-</script>
-```
-
-In this case, props will be taken from `props` property.
-
-### Preview
-
-`@component` plugin also modifies the behaviour of `@example` tag in a way that it can generate an actual __component preview__. What you have to do is to add an `@example` tag and return component from it:
-
-**React example:**
-
-```jsx
-/**
- * Some documented component
- *
- * @component
- * @example
- * const text = 'some example text'
- * return (
- *   <Documented text={text} />
- * )
- */
-const Documented = (props) => {
-  ///...
-}
-```
-
-**Vue example 1:**
-
-```vue
-<script>
-/**
- * @component
- * @example
- * <ExampleComponent :spent="100" :remaining="50"></ExampleComponent>
- */
-export default {
-  name: 'ExampleComponent',
-  //...
-}
-</script>
-```
-
-**Vue example 2:**
-
-```vue
-<script>
-/**
- * @component
- * @example
- * {
- *   template: `<Box>
- *     <ProgressBar :spent="spent" :remaining="50"></ProgressBar>
- *     <ProgressBar :spent="50" :remaining="50" style="margin-top: 20px"></ProgressBar>
- *   </Box>`,
- *   data: function() {
- *     return {spent: 223};
- *   }
- * }
- */
-export default {
-  name: 'ExampleComponent',
-  //...
-}
-</script>
-```
-
-You can put as many `@example` tags as you like in one component and "caption" each of them like this:
-
-```javascript
-/**
- * @component
- * @example <caption>Example usage of method1.</caption>
- * // your example here
- */
-```
-
-### Mixing components in preview
-
-Also you can use multiple components which are documented with `@component` tag together. So lets say you have 2 components and in the second component you want to use the first one as a wrapper like this:
-
-```javascript
-// component-1.js
-/**
- * Component 1
- * @component
- *
- */
-const Component1 = (props) => {...}
-
-// component-2.js
-/**
- * Component 2
- * @component
- * @example
- * return (
- *   <Component1>
- *     <Component2 prop1={'some value'}/>
- *     <Component2 prop1={'some other value'}/>
- *   </Component1>
- * )
- */
-const Component2 = (props) => {...}
-```
-
-### Wrapper component [only React]
-
-Most probably your components will have to be run within a particular context, like within redux store provider or with custom CSS libraries.
-You can simulate this by passing a `component.wrapper` in your `jsdoc.json`:
-_(To read more about passing options - scroll down to __Customization__ section)_
-
-```json
-// jsdoc.json
-{
-    "opts": {...},
-    "templates": {
-        "super-docs": {
-            "name": "Sample Documentation",
-            "component": {
-              "wrapper": "./path/to/your/wrapper-component.js",
-            },
-            "...": "...",
-        }
-    }
-}
-```
-
-Wrapper component can look like this:
-
-```javascript
-// wrapper-component.js
-import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-
-const store = createStore(() => ({}), {})
-
-const Component = (props) => {
-  return (
-    <React.Fragment>
-      <head>
-        <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css" />
-      </head>
-      <Provider store={store}>
-        <BrowserRouter>
-          {props.children}
-        </BrowserRouter>
-      </Provider>
-    </React.Fragment>
-  )
-}
-
-export default Component
-```
-
-### Styling React examples
-
-Super-docs inserts all examples within an `iframe`. This results in the following styling options:
-
-1. If you pass styles inline - they will work right away.
-
-2. For `css modules` to work with `parcel` bundler - you have to install `postcss-modules` package:
-
-```
-yarn add postcss-modules
-```
-
-and create a `.postcssrc` file:
-
-
-```json
-// .postcssrc
-{
-	"modules": true
-}
-```
-
-3. For [styled-components](https://www.styled-components.com/) you have to use wrapper component which looks like this:
-
-```jsx
-import React from 'react'
-import { StyleSheetManager } from 'styled-components'
-
-const Component = (props) => {
-  const { frameContext } = props
-  return (
-    <StyleSheetManager target={frameContext.document.head}>
-      {props.children}
-    </StyleSheetManager>
-  )
-}
-
-export default Component
-```
-
-### Adding commands to bundle entry file
-
-`@component` plugin creates an entry file: `.entry.js` in your _docs_ output folder. Sometimes you might want to add something to it. You can do this by passing: `component.entry` option, which is an array of strings.
-
-So let's say you want to add `babel-polyfill` and 'bulma.css' framework to your bundle. You can do it like this:
-
-```json
-// jsdoc.json
-{
-    "opts": {...},
-    "templates": {
-        "super-docs": {
-            "name": "Sample Documentation",
-            "component": {
-                "entry": [
-                    "import 'babel-polyfill';",
-                    "import 'bulma/css/bulma.css';"
-                ]
-            },
-            "...": "...",
-        }
-    }
 }
 ```
 
@@ -610,6 +320,36 @@ Example configuration file with settings for both `default` and `super-docs` tem
     }
 }
 ```
+
+### Explanation of Key Fields
+
+Sure, here's the information converted into a markdown table:
+
+| Key Field | Explanation |
+| --- | --- |
+| `tags` | Specifies the handling of unknown tags in the documentation. In this case, all unknown tags are allowed. |
+| `source` | Specifies the source files to be included in the documentation. It includes all JavaScript and TypeScript files in the project, excluding those in the `node_modules` directory. |
+| `plugins` | Lists the plugins used in the documentation generation process. |
+| `opts` | Specifies various options for the documentation generation, such as the encoding, destination directory, and whether to include subdirectories. |
+| `templates` | Specifies the settings for the templates used in the documentation. This includes settings for search functionality, link styles, and static files to be included. |
+| `opts.encoding` | Specifies the encoding type for the files. In this case, it is set to "utf8". |
+| `opts.destination` | Specifies the output directory for the generated documentation. Here, it is set to "docs/". |
+| `opts.recurse` | When set to true, allows the documentation generator to traverse subdirectories. |
+| `opts.verbose` | When set to false, suppresses the logging of non-essential information during the documentation generation process. |
+| `opts.template` | Specifies the directory of the template to be used for the documentation. Here, it is set to the current directory "./". |
+| `opts.tutorials` | Specifies the directory of the tutorial files to be included in the documentation. Here, it is set to "./fixtures/tutorials". |
+| `opts.readme` | Specifies the file to be used as the README in the documentation. Here, it is set to "./README.md". |
+| `default.staticFiles.include` | Specifies the directory of static files to be included in the documentation. Here, it is set to "./docs/statics". |
+| `favicon` | Specifies the path to the favicon file for the documentation. Here, it is set to "./images/favicon.png". |
+| `super-docs.name` | Specifies the name for the "Super Docs" template. |
+| `super-docs.logo` | Specifies the logo for the "Super Docs" template. |
+| `super-docs.title` | Specifies the title for the "Super Docs" template. |
+| `super-docs.css` | Specifies the CSS file for the "Super Docs" template. |
+| `super-docs.hideGenerator` | When set to true, hides the documentation generator's information in the output documentation. |
+| `super-docs.favicon` | Specifies the path to the favicon file for the "Super Docs" template. |
+| `super-docs.faviconType` | Specifies the type of the favicon file for the "Super Docs" template. |
+
+Please ensure that all paths and settings are correctly configured for your project's structure and requirements.
 
 ### Extras
 
@@ -684,12 +424,6 @@ If you want to see how to setup jsdoc in your project - take a look at these bri
 
 super-docs is Copyright © 2019 sherifButt.co. It is free software and may be redistributed under the terms specified in the [LICENSE](LICENSE) file - MIT.
 
-## About sherifButt.co
-
-<img src="https://softwarebrothers.co/assets/images/software-brothers-logo-full.svg" width=240>
-
+## About [sherifButt.co](https://portfolio-zeta-vert.vercel.app)
 
 We're an open, friendly team that helps clients from all over the world to transform their businesses and create astonishing products.
-
-* We are available for [hire](https://softwarebrothers.co/contact).
-* If you want to work for us - check out the [career page](https://softwarebrothers.co/career).

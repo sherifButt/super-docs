@@ -55,12 +55,14 @@ body
     overflow: auto
     flex-grow: 1
     @include until($tablet)
+      overflow-x: hidden
+      overflow-y: auto 
       padding: 0px
     & > .content
       background: transparent
       padding: 0px 40px
       @include until($tablet)
-        padding: 0px 20px
+        padding: 0px 24px
       border-radius: 4px
       box-shadow: none
   & > .side-nav

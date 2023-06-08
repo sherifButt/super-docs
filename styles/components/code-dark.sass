@@ -1,9 +1,14 @@
+$dark-bg: #1E1E1E
+$dark-font-color: #D4D4D4
+$dark-grey: #3C3C3C
+$dark-border: #2D2D2D
+
 code
   background-color: $codeBg
 .hover-text
   margin-left: 10px
 .pln
-  color: $base-font-color
+  color: $dark-font-color
 .kwd
   color: $kwd
 .str
@@ -13,8 +18,7 @@ code
 .param-type
   background-color: $codeBg
 .prettyprint
-  // border-radius: 2px
-  background-color: $preBg
+  background-color: $dark-bg
   code
     font-family: $code-font-family
 pre.prettyprint
@@ -41,8 +45,8 @@ pre.prettyprint
   box-shadow: $element-shadow
   overflow: hidden
   border-radius: $border-radius-md
-  background: #FFF
-  border: 1px solid #CCC
+  background: $dark-bg
+  border: 1px solid $dark-border
   padding-top: 30px /* Space for the header */
   position: relative
   .header
@@ -51,13 +55,13 @@ pre.prettyprint
     left: 0
     right: 0
     height: 30px
-    background: #EEE
-    border-bottom: 1px solid #CCC
+    background: $dark-grey
+    border-bottom: 1px solid $dark-border
     border-top-left-radius: $border-radius-md
     border-top-right-radius: $border-radius-md
     .copy
       position: absolute
-      color: $base-font-color-light
+      color: white
       font-size: 13px
       cursor: pointer
       display: flex
@@ -65,18 +69,14 @@ pre.prettyprint
       align-items: center
       right: 10px
       top: 5px
-      // transition: transform 0.2s ease
-      // &:hover
-      //   transform: scale(1.05)
-      // &:active
-      //   transform: scale(1)
+      color: $dark-font-color
     .language-type
       position: absolute
       left: 71px
       top: 6px
       font-size: 11px
       font-weight: bold
-      color: #333
+      color: $dark-font-color
     .buttons
       position: absolute
       top: 8px
