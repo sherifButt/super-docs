@@ -2,7 +2,29 @@
 
 Documentation toolbox for your **javascript** / **typescript** projects based on JSDoc3 with **@category** and **@optional** plugins.
 
-### Key features:
+1. [Key features](#key-features)
+2. [Example](#example)
+3. [Installation](#installation)
+4. [Theme Usage](#theme-usage)
+   - [With command line](#with-command-line)
+   - [With npm and configuration file](#with-npm-and-configuration-file)
+5. [TypeScript support](#typescript-support)
+   - [Usage](#usage)
+   - [How it works?](#how-it-works)
+   - [Examples](#examples)
+6. [@category plugin](#category-plugin)
+   - [Usage](#usage-1)
+7. [Customization](#customization)
+   - [Explanation of Key Fields](#explanation-of-key-fields)
+8. [Extras](#extras)
+   - [typedef(import(...))](#typedefimport)
+9. [Setting up for the development](#setting-up-for-the-development)
+10. [Setting up the jsdoc in your project](#setting-up-the-jsdoc-in-your-project)
+11. [Automatically generate JSDocs before pushing to github](#automatically-generate-jsdocs-before-pushing-to-github)
+12. [License](#license)
+13. [About sherifButt.co](#about-sherifbuttco)
+
+### <a name="key-features">Key features:
 
 - Openapi Swagger documentation out of the box, with beautiful theme
 - Mermaid integration for flowcharts, sequence diagrams and more
@@ -23,20 +45,20 @@ This how it looks:
 </div>
 </div>
 
-## Example
+## <a name="example"></a>Example
 
 Example documentation can be found here: https://sherifbutt.github.io/super-docs-documentation/
 
 
-## Installation
+## <a name="installation"></a>Installation
 
 ```sh
 npm install --save-dev super-docs
 ```
 
-## Theme Usage
+## <a name="theme-usage"></a>Theme Usage
 
-### With command line
+### <a name="with-command-line"></a>With command line
 
 Assuming that you have [jsdoc](https://github.com/jsdoc/jsdoc) installed globally:
 
@@ -44,7 +66,7 @@ Assuming that you have [jsdoc](https://github.com/jsdoc/jsdoc) installed globall
 jsdoc your-documented-file.js -t ./node_modules/super-docs
 ```
 
-### With npm and configuration file
+### <a name="with-npm-and-configuration-file"></a>With npm and configuration file
 <div class="mdc">
 <div class="ic">
 
@@ -68,11 +90,11 @@ in your `jsdoc.json` file, set the template:
 </div>
 </div>
 
-## TypeScript support
+## <a name="typescript-support"></a>TypeScript support
 
 super-docs has a plugin which allows you to generate documentation from your TypeScript codebase.
 
-### Usage
+### <a name="usage"></a>Usage
 
 To use it update your `jsdoc.json` file
 
@@ -92,7 +114,7 @@ To use it update your `jsdoc.json` file
 
 And now you can run your `jsdoc` command and parse TypeScript files.
 
-### How it works?
+### <a name="how-it-works"></a>How it works?
 
 It performs 4 operations:
 
@@ -107,7 +129,7 @@ Furthermore it:
 
 so they can be printed by JSDoc automatically.
 
-### Examples
+### <a name="examples"></a>Examples
 
 ```jsx
 /**
@@ -222,11 +244,11 @@ class ClassName {
 }
 ```
 
-## @category plugin
+## <a name="category-plugin"></a>@category plugin
 
 super-docs also allows you to nest your documentation into categories and subcategories in the sidebar menu.
 
-### Usage
+### <a name="usage-1"></a>Usage
 
 To add a plugin - update `plugins` section in your `jsdoc.json` file:
 
@@ -254,7 +276,7 @@ class YourClass {
 }
 ```
 
-## Customization
+## <a name="customization">Customization
 
 First of all, let me state that super-docs extends the `default` template. That is why default template parameters are also handled.
 
@@ -321,7 +343,7 @@ Example configuration file with settings for both `default` and `super-docs` tem
 }
 ```
 
-### Explanation of Key Fields
+### <a name="explanation-of-key-fields">Explanation of Key Fields
 
 Sure, here's the information converted into a markdown table:
 
@@ -351,9 +373,9 @@ Sure, here's the information converted into a markdown table:
 
 Please ensure that all paths and settings are correctly configured for your project's structure and requirements.
 
-### Extras
+### <a name="extras">Extras
 
-#### typedef(import(...))
+#### <a name="typedefimport"></a>typedef(import(...))
 
 super-docs also has one extra plugin for handling typescript'like types imports like (it has to be one-liner):
 
@@ -369,7 +391,9 @@ It simply removes that from the code so JSDoc wont throw an error. In order to u
     ],
 ```
 
-## Setting up for the development
+
+
+## <a name="setting-up-for-the-development"></a>Setting up for the development
 
 If you want to change the theme locally follow the steps:
 
@@ -413,17 +437,39 @@ DOCS_COMMAND='npm run docs' DOCS=../src/**/*,../config/**/* DOCS_OUTPUT=../docs 
 
 The script should launch the browser and refresh it whenever you change something in the template or in `DOCS`.
 
-## Setting up the jsdoc in your project
+## <a name="setting-up-the-jsdoc-in-your-project"></a>Setting up the jsdoc in your project
 
 If you want to see how to setup jsdoc in your project - take a look at these brief tutorials:
 
 - JSDoc - https://www.youtube.com/watch?v=Yl6WARA3IhQ
 - super-docs and Mermaid: https://www.youtube.com/watch?v=UBMYogTzsBk
 
-## License
+## <a name="automatically-generate-jsdocs-before-pushing-to-github"> generate JSDocs before pushing to github
+
+ You can use Git hooks, specifically a `pre-push` hook, to automate the generation of JSDocs each time you push your changes. This will ensure that your documentation is always up to date with your latest changes. Git hooks are scripts that Git executes before or after events such as `commit`, `push`, and so forth.
+
+    Here's an example of how you could use a Git `pre-push` hook to generate your documentation:
+
+    First, navigate to the `.git/hooks` directory in your project. You will find several sample hooks. You'll need to create a new file called `pre-push` (with no file extension). Inside this file, put:
+
+    ```bash
+    #!/bin/sh
+
+    jsdoc -c jsdoc.json
+    ```
+
+    This script will automatically run before each `git push` command.
+
+    You will also need to give the `pre-push` file the appropriate permissions to allow it to be executed. You can do this with the following command:
+
+    ```bash
+    chmod +x .git/hooks/pre-push
+    ```
+
+## <a name="license"></a>License
 
 super-docs is Copyright © 2019 sherifButt.co. It is free software and may be redistributed under the terms specified in the [LICENSE](LICENSE) file - MIT.
 
-## About [sherifButt.co](https://portfolio-zeta-vert.vercel.app)
+## <a name="about-sherifbuttco"></a>About [sherifButt.co](https://portfolio-zeta-vert.vercel.app)
 
 We're an open, friendly team that helps clients from all over the world to transform their businesses and create astonishing products.
