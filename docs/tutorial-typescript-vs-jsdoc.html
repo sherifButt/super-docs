@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Super docs My Awesome Tutorial</title>
+  <title>Super docs TypeScript vs JSDoc</title>
   
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="shortcut icon" type="" href="./images/favicon.png"/>
@@ -138,123 +138,115 @@
             <div class="content">
                 <header class="page-title">
                     <p>Tutorial</p>
-                    <h1>My Awesome Tutorial</h1>
+                    <h1>TypeScript vs JSDoc</h1>
                 </header>
                 <section>
 
 <article>
-    <h1><a id="memory-extension-web-app"></a>Memory Extension Web App</h1>
-<p>This project aims to simulate human memory processes to provide long-term memory support for ChatGPT, particularly when dealing with complex tasks such as coding a large application.</p>
-<ul>
-<li><a href="#memory-extension-web-app">Memory Extension Web App</a></li>
-<li><a href="#how-to-send">How to send?</a></li>
-<li><a href="#examples">Examples</a></li>
-<li><a href="#target-audience">Target Audience</a></li>
-<li><a href="#license">License</a></li>
-</ul>
-<h3><a id="how-to-send"></a>How to send?</h3>
-<p>particularly when dealing with complex tasks such as coding a large application.
-swagger-setup-on-express-api</p>
-<div class='mdc'>
-<div class='ic'>
-<pre class="prettyprint source lang-javascript"><code>function hashToLink(doclet, hash) {
-  var url
-
-  if ( !/^(#.+)/.test(hash) ) {
-    return hash
-  }
-
-  url = helper.createLink(doclet)
-  url = url.replace(/(#.+|$)/, hash)
-
-  return '&lt;a href=&quot;' + url + '&quot;>' + hash + '&lt;/a>'
+    <h1>Unraveling JavaScript Annotations: TypeScript vs JSDoc</h1>
+<p>In the vast landscape of JavaScript development, two tools stand out for their capabilities in enhancing code understanding and maintainability: JSDoc and MS TypeScript. Let's dive into the critical differences between them and understand when to employ each one in your projects.</p>
+<p><strong>JSDoc:</strong> JSDoc empowers developers to document their JavaScript code using specially formatted comments. JSDoc annotations can elucidate the intention behind variables, function parameters, return values, and other facets of the codebase. However, it does not enforce type checking, making it a primarily documentation-oriented tool. If you're eager to infuse your code with comprehensible documentation, have a look at the <a href="https://jsdoc.app/about-getting-started.html">JSDoc getting started guide</a>.</p>
+<p><strong>TypeScript:</strong> TypeScript extends JavaScript by introducing static types, offering a safety net that can reveal potential bugs at compile time. This compile-time type checking, combined with superior tooling support like advanced autocompletion and refactoring capabilities, makes TypeScript a robust choice for large-scale projects. For those intrigued by TypeScript, explore this <a href="https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html">quick guide</a> to get started.</p>
+<p>When it comes to the organizations behind these tools, JSDoc is an open-source project maintained by a vibrant community of contributors.On the other hand, TypeScript  developed in 2012 and still maintained by Microsoft until now as open-source.</p>
+<h3>TypeScript and JSDoc: A Deep Dive</h3>
+<p>While TypeScript and JSDoc both improve code comprehension, their strengths lie in different areas. TypeScript shines in catching potential type-related errors and enhancing development tooling, whereas JSDoc is a cornerstone for creating clear, understandable documentation within your JavaScript code.</p>
+<p>To illustrate, let's consider a simple <code>add</code> function:</p>
+<pre class="prettyprint source lang-typescript"><code>// TypeScript
+function add(a: number, b: number): number {
+  return a + b;
 }
 </code></pre>
-</div>
-<div class='ic'>
-<pre class="prettyprint source lang-mermaid"><code>---
-title: sequence diagram for the proccess
----
-gantt
-title Writing my thesis
-dateFormat  MM-DD
-axisFormat  %m-%d
-section Research
-Procrastinate           :a1, 01-01, 59d
-Do it     :after a1  , 10d
-section Write-up
-Should I start?     :03-01 , 20d
-Ugh ok      : 6d
+<pre class="prettyprint source lang-javascript"><code>// JSDoc
+/**
+ * @param {number} a
+ * @param {number} b
+ * @returns {number}
+ */
+function add(a, b) {
+  return a + b;
+}
 </code></pre>
-</div>
-</div>
+<p>Both TypeScript and JSDoc make the code more understandable, but TypeScript additionally offers the safety of type checking, which reduces potential runtime bugs. However, <strong>TypeScript adoption might be an overkill</strong> for smaller, simpler projects due to the additional step of compilation it introduces.</p>
+<h3>Exploring Middle Ground with <code>//@ts-check</code></h3>
+<p>If you're interested in incorporating some level of type checking in your JavaScript project without fully migrating to TypeScript, there's a hybrid approach using the <code>//@ts-check</code> comment. This TypeScript feature enables type checking in JavaScript files, providing some of TypeScript's static typing benefits without a full migration. Learn more about the utility of <code>//@ts-check</code> in your projects <a href="https://www.typescriptlang.org/docs/handbook/intro-to-js-ts.html#ts-check">here</a>.</p>
+<p>This approach combines JSDoc's documentation capabilities with TypeScript's type checking, forming a potent cocktail for enhanced code understanding. However, it's worth noting that <code>//@ts-check</code> doesn't match TypeScript's advanced type system and superior refactoring tools.</p>
+<h3>Considerations and Use Cases</h3>
+<p>Deciding between JSDoc and TypeScript (or using a combination of both) boils down to your project needs:</p>
+<ul>
+<li><strong>Large-Scale Projects:</strong> TypeScript's robust type checking and advanced tooling support make it the preferred choice for comprehensive projects.</li>
+<li><strong>Pure JavaScript with Enhanced Documentation:</strong> If you wish to stick to JavaScript without introducing a build step, but desire better documentation and some type checking, JSDoc with <code>//@ts-check</code> provides an ideal middle ground.</li>
+<li><strong>Documentation-Centric Approach:</strong> For projects where extensive documentation is paramount and type checking isn't a primary concern, using JSDoc alone could suffice.</li>
+</ul>
+<p>To provide</p>
+<p>a clearer picture, let's compare the capabilities of JSDoc, TypeScript, and the combination of JSDoc with <code>//@ts-check</code>:</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Item</th>
-<th style="text-align:center">In Stock</th>
-<th style="text-align:right">Price</th>
+<th>Feature</th>
+<th>JSDoc</th>
+<th>JSDoc + <code>// @ts-check</code></th>
+<th>TypeScript</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">Python Hat</td>
-<td style="text-align:center">True</td>
-<td style="text-align:right">23.99</td>
+<td>Type Annotations</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️</td>
 </tr>
 <tr>
-<td style="text-align:left">SQL Hat</td>
-<td style="text-align:center">True</td>
-<td style="text-align:right">23.99</td>
+<td>Type Checking</td>
+<td>❌</td>
+<td>✔️</td>
+<td>✔️</td>
 </tr>
 <tr>
-<td style="text-align:left">Codecademy Tee</td>
-<td style="text-align:center">False</td>
-<td style="text-align:right">19.99</td>
+<td>Advanced Type System</td>
+<td>❌</td>
+<td>Partial</td>
+<td>✔️</td>
 </tr>
 <tr>
-<td style="text-align:left">Codecademy Hoodie</td>
-<td style="text-align:center">False</td>
-<td style="text-align:right">42.99</td>
+<td>Refactoring Tools</td>
+<td>Limited</td>
+<td>Partial</td>
+<td>✔️</td>
+</tr>
+<tr>
+<td>Type Inference</td>
+<td>❌</td>
+<td>Limited</td>
+<td>✔️</td>
+</tr>
+<tr>
+<td>Compilation</td>
+<td>❌</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+<tr>
+<td>Support for JavaScript Code</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔️*</td>
+</tr>
+<tr>
+<td>Documentation Generation</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Interoperability with JS</td>
+<td>High</td>
+<td>High</td>
+<td>Moderate</td>
 </tr>
 </tbody>
 </table>
-<h2><a id="examples"></a>Examples</h2>
-<div class="mdc">
-<div calss="ic">
-<p>Here are some examples of how to use this project:</p>
-<ul>
-<li>To authenticate a user, use the NextAuth library.</li>
-<li>To manage state, use the Redux RTK Query library.</li>
-<li>To style the UI, use the Tailwind library.</li>
-<li>To store data, use the PostgreSQL database.</li>
-<li>To document the API, use the Swagger library.</li>
-</ul>
-</div>
-<div class="ic" width="50%">
-<pre class="prettyprint source lang-mermaid"><code>sequenceDiagram
-    participant U as User
-    participant F as Function
-    U->>F: Calls cleanCode(response)
-    F->>F: Checks validity of response
-    Note over F: If response is invalid, returns empty codeBlocks, cleanedResponse, noMarkdown
-    F->>F: Creates startMarker and endMarker
-    F->>F: Finds startMarkerIndex in response
-    F->>F: Creates cleanedInput by removing content before startMarker
-    F->>F: Finds endMarkerIndex in cleanedInput
-    F->>F: Removes everything after endMarker in cleanedInput
-    F->>F: Matches code blocks with regex
-    F->>F: Creates codeBlocks and cleanedResponse
-    F->>F: Matches any unmatched backticks in cleanedResponse
-    F->>F: Creates final cleanedResponse and noMarkdown
-    F-->>U: Returns CodeBlocks, cleanedResponse, noMarkdown
-</code></pre>
-</div>
-</div>
-<h2><a id="target-audience"></a>Target Audience</h2>
-<p>This project is intended for developers who use ChatGPT and need long-term memory support for complex tasks such as coding a large application.</p>
-<h2><a id="license">License</h2>
-<p>This project is licensed under the MIT License. See the LICENSE file for details.</p>
+<p>(*) TypeScript, as a superset of JavaScript, inherently supports all JavaScript code. However, the new syntax and features exclusive to TypeScript may not be directly interoperable with pure JavaScript code, hence, TypeScript code needs to be transpiled to JavaScript, adding a layer of complexity to your build process.</p>
+<p>Remember, there's no one-size-fits-all solution in software development. The decision between JSDoc, TypeScript, or both hinges on the specific needs of your project and team. By understanding their strengths and limitations, you can make an informed choice that enhances your development experience and results in more maintainable code.</p>
 </article>
 
 </section>

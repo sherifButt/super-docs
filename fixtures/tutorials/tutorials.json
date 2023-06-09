@@ -1,7 +1,14 @@
 {
     "my-awesome-tutorial": {
-        "title": "01. My Awesome Tutorial"
+        "title": "My Awesome Tutorial"
     },
-    "swagger-setup-on-express-api":{
-        "title": "02. Swagger Setup on Express API"}
+    "swagger-setup-on-express-api": {
+        "title": "Swagger Setup on Express API"
+    },
+    "what-is-jsdoc": {
+        "title": "What is JSDoc?"
+    },
+    "typescript-vs-jsdoc": {
+        "title": "TypeScript vs JSDoc"
+    }
 }

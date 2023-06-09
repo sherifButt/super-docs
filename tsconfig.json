@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+      "module": "es6",
+      "noEmit": true,
+      "checkJs": true,
+      "moduleResolution": "node"
+    },
+    "include": ["src/**/*"]
+  }
