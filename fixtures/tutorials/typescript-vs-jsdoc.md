@@ -12,6 +12,8 @@ When it comes to the organizations behind these tools, JSDoc is an open-source p
 
 While TypeScript and JSDoc both improve code comprehension, their strengths lie in different areas. TypeScript shines in catching potential type-related errors and enhancing development tooling, whereas JSDoc is a cornerstone for creating clear, understandable documentation within your JavaScript code.
 
+![auto documentation using jsdoc and supper-docs](../../static/images/function.png 'super-docs auto js documentation generator')
+
 To illustrate, let's consider a simple `add` function:
 
 ```typescript

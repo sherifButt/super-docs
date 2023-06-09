@@ -16,6 +16,8 @@ Table of content
 </div>
 <div class="ic">
 
+![swagger image](../../docs/images/swagger.png)
+
 ## Introduction
 
 This guide is a step-by-step instruction on how to setup Swagger for API documentation in an Express API project. It assumes that you already have an Express API project set up. If not, you should do so before proceeding.

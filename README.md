@@ -13,7 +13,7 @@ This how it looks:
 <div class='mdc' >
 <div class='ic'>
 
-![mobile version change log page](./images/class.png 'mobile version mockup')
+![mobile version change log page](static/images/class.png)
 
 </div>
 <div class='ic'>
