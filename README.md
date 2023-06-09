@@ -1,8 +1,8 @@
-# Super Docs theme for JsDocs
+# 1. Super Docs theme for JsDocs
 
 Documentation toolbox for your **javascript** / **typescript** projects based on JSDoc3 with **@category** and **@optional** plugins.
 
-### <a name="key-features"></a>Key features: 
+### 1.0.1. <a name="key-features"></a>Key features: 
 
 - Openapi Swagger documentation out of the box, with beautiful theme
 - Mermaid integration for flowcharts, sequence diagrams and more
@@ -23,40 +23,47 @@ This how it looks:
 </div>
 </div>
 
-1. [Installation](#installation)
-2. [Theme Usage](#theme-usage)
-   - [With command line](#with-command-line)
-   - [With npm and configuration file](#with-npm-and-configuration-file)
-3. [TypeScript support](#typescript-support)
-   - [Usage](#usage)
-   - [How it works?](#how-it-works)
-   - [Examples](#examples)
-4. [@category plugin](#category-plugin)
-   - [Usage](#usage-1)
-5. [Customization](#customization)
-   - [Explanation of Key Fields](#explanation-of-key-fields)
-6. [Extras](#extras)
-   - [typedef(import(...))](#typedefimport)
-7. [Setting up for the development](#setting-up-for-the-development)
-8. [Setting up the jsdoc in your project](#setting-up-the-jsdoc-in-your-project)
-9. [Automatically generate JSDocs before pushing to github](#automatically-generate-jsdocs-before-pushing-to-github)
-10. [License](#license)
-12. [About sherifButt.co](#about-sherifbuttco)
+## 1.1. Table of content
 
-## <a name="example"></a>Example
+- [1. Super Docs theme for JsDocs](#1-super-docs-theme-for-jsdocs)
+    - [1.0.1. Key features:](#101-key-features)
+  - [1.1. Table of content](#11-table-of-content)
+  - [1.2. Example](#12-example)
+  - [1.3. Installation](#13-installation)
+  - [1.4. Theme Usage](#14-theme-usage)
+    - [1.4.1. With command line](#141-with-command-line)
+    - [1.4.2. With npm and configuration file](#142-with-npm-and-configuration-file)
+  - [1.5. TypeScript support](#15-typescript-support)
+    - [1.5.1. Usage](#151-usage)
+    - [1.5.2. How it works?](#152-how-it-works)
+    - [1.5.3. Examples](#153-examples)
+  - [1.6. @category plugin](#16-category-plugin)
+    - [1.6.1. Usage](#161-usage)
+  - [1.7. Swagger integration](#17-swagger-integration)
+  - [1.8. Customization](#18-customization)
+    - [1.8.1. Explanation of Key Fields](#181-explanation-of-key-fields)
+    - [1.8.2. Extras](#182-extras)
+      - [1.8.2.1. typedef(import(...))](#1821-typedefimport)
+  - [1.9. Setting up for the development](#19-setting-up-for-the-development)
+  - [1.10. Setting up the jsdoc in your project](#110-setting-up-the-jsdoc-in-your-project)
+  - [1.11.  generate JSDocs before pushing to github](#111--generate-jsdocs-before-pushing-to-github)
+  - [1.12. License](#112-license)
+  - [1.13. About sherifButt.co](#113-about-sherifbuttco)
+
+## 1.2. <a name="example"></a>Example
 
 Example documentation can be found here: https://sherifbutt.github.io/super-docs-documentation/
 
 
-## <a name="installation"></a>Installation
+## 1.3. <a name="installation"></a>Installation
 
 ```sh
 npm install --save-dev super-docs
 ```
 
-## <a name="theme-usage"></a>Theme Usage
+## 1.4. <a name="theme-usage"></a>Theme Usage
 
-### <a name="with-command-line"></a>With command line
+### 1.4.1. <a name="with-command-line"></a>With command line
 
 Assuming that you have [jsdoc](https://github.com/jsdoc/jsdoc) installed globally:
 
@@ -64,7 +71,7 @@ Assuming that you have [jsdoc](https://github.com/jsdoc/jsdoc) installed globall
 jsdoc your-documented-file.js -t ./node_modules/super-docs
 ```
 
-### <a name="with-npm-and-configuration-file"></a>With npm and configuration file
+### 1.4.2. <a name="with-npm-and-configuration-file"></a>With npm and configuration file
 <div class="mdc">
 <div class="ic">
 
@@ -88,11 +95,11 @@ in your `jsdoc.json` file, set the template:
 </div>
 </div>
 
-## <a name="typescript-support"></a>TypeScript support
+## 1.5. <a name="typescript-support"></a>TypeScript support
 
 super-docs has a plugin which allows you to generate documentation from your TypeScript codebase.
 
-### <a name="usage"></a>Usage
+### 1.5.1. <a name="usage"></a>Usage
 
 To use it update your `jsdoc.json` file
 
@@ -112,7 +119,7 @@ To use it update your `jsdoc.json` file
 
 And now you can run your `jsdoc` command and parse TypeScript files.
 
-### <a name="how-it-works"></a>How it works?
+### 1.5.2. <a name="how-it-works"></a>How it works?
 
 It performs 4 operations:
 
@@ -127,7 +134,7 @@ Furthermore it:
 
 so they can be printed by JSDoc automatically.
 
-### <a name="examples"></a>Examples
+### 1.5.3. <a name="examples"></a>Examples
 
 ```jsx
 /**
@@ -242,11 +249,11 @@ class ClassName {
 }
 ```
 
-## <a name="category-plugin"></a>@category plugin
+## 1.6. <a name="category-plugin"></a>@category plugin
 
 super-docs also allows you to nest your documentation into categories and subcategories in the sidebar menu.
 
-### <a name="usage-1"></a>Usage
+### 1.6.1. <a name="usage-1"></a>Usage
 
 To add a plugin - update `plugins` section in your `jsdoc.json` file:
 
@@ -274,7 +281,34 @@ class YourClass {
 }
 ```
 
-## <a name="customization"></a>Customization
+## 1.7. <a name="swagger-integration"></a>Swagger integration
+
+Super Docs utilizes two main dependencies, `swagger-jsdoc` (5.0.1) and `swagger-ui-express` (^4.6.3), to facilitate comprehensive API documentation for your Express API. Swagger's interface offers an easy way to interact with the API's resources. In this brief overview, we will outline the initial setup steps. For a more comprehensive guide, please visit our [Extensive Tutorial](#ExtensiveTutorial).
+
+First, make sure your `jsdocs.json` file includes a "super-docs" section:
+
+```json
+{
+    "super-docs": {
+        "swagger": "./config/swagger.js",
+        "productionServer":"https://sherifbutt.github.io/super-docs/",
+        "developmentServer":"http://127.0.0.1:5500/docs/"
+    }
+}
+```
+
+In this configuration:
+
+- The `swagger` key points to your swagger configuration file.
+- `productionServer` points Swagger to your production server.
+- `developmentServer` points Swagger to your development server.
+
+If the `swagger` key is provided, a top navigation menu titled 'API' will appear.
+
+For more detailed instructions on setting up and installing Swagger, please refer to our [Extensive Tutorial](tutorial-swagger-setup-on-express-api.html).
+
+
+## 1.8. <a name="customization"></a>Customization
 
 First of all, let me state that super-docs extends the `default` template. That is why default template parameters are also handled.
 
@@ -341,7 +375,7 @@ Example configuration file with settings for both `default` and `super-docs` tem
 }
 ```
 
-### <a name="explanation-of-key-fields"></a>Explanation of Key Fields
+### 1.8.1. <a name="explanation-of-key-fields"></a>Explanation of Key Fields
 
 Sure, here's the information converted into a markdown table:
 
@@ -371,9 +405,9 @@ Sure, here's the information converted into a markdown table:
 
 Please ensure that all paths and settings are correctly configured for your project's structure and requirements.
 
-### <a name="extras"></a>Extras
+### 1.8.2. <a name="extras"></a>Extras
 
-#### <a name="typedefimport"></a>typedef(import(...))
+#### 1.8.2.1. <a name="typedefimport"></a>typedef(import(...))
 
 super-docs also has one extra plugin for handling typescript'like types imports like (it has to be one-liner):
 
@@ -391,7 +425,7 @@ It simply removes that from the code so JSDoc wont throw an error. In order to u
 
 
 
-## <a name="setting-up-for-the-development"></a>Setting up for the development
+## 1.9. <a name="setting-up-for-the-development"></a>Setting up for the development
 
 If you want to change the theme locally follow the steps:
 
@@ -435,14 +469,14 @@ DOCS_COMMAND='npm run docs' DOCS=../src/**/*,../config/**/* DOCS_OUTPUT=../docs 
 
 The script should launch the browser and refresh it whenever you change something in the template or in `DOCS`.
 
-## <a name="setting-up-the-jsdoc-in-your-project"></a>Setting up the jsdoc in your project
+## 1.10. <a name="setting-up-the-jsdoc-in-your-project"></a>Setting up the jsdoc in your project
 
 If you want to see how to setup jsdoc in your project - take a look at these brief tutorials:
 
 - JSDoc - https://www.youtube.com/watch?v=Yl6WARA3IhQ
 - super-docs and Mermaid: https://www.youtube.com/watch?v=UBMYogTzsBk
 
-## <a name="automatically-generate-jsdocs-before-pushing-to-github"></a> generate JSDocs before pushing to github
+## 1.11. <a name="automatically-generate-jsdocs-before-pushing-to-github"></a> generate JSDocs before pushing to github
 
  You can use Git hooks, specifically a `pre-push` hook, to automate the generation of JSDocs each time you push your changes. This will ensure that your documentation is always up to date with your latest changes. Git hooks are scripts that Git executes before or after events such as `commit`, `push`, and so forth.
 
@@ -464,10 +498,10 @@ If you want to see how to setup jsdoc in your project - take a look at these bri
     chmod +x .git/hooks/pre-push
     ```
 
-## <a name="license"></a>License
+## 1.12. <a name="license"></a>License
 
 super-docs is Copyright © 2019 sherifButt.co. It is free software and may be redistributed under the terms specified in the [LICENSE](LICENSE) file - MIT.
 
-## <a name="about-sherifbuttco"></a>About [sherifButt.co](https://portfolio-zeta-vert.vercel.app)
+## 1.13. <a name="about-sherifbuttco"></a>About [sherifButt.co](https://portfolio-zeta-vert.vercel.app)
 
 We're an open, friendly team that helps clients from all over the world to transform their businesses and create astonishing products.

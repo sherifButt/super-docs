@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Super docs fixtures/component.jsx</title>
+  <title>Super docs 02. Swagger Setup on Express API</title>
   
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
     <link rel="shortcut icon" type="" href="./images/favicon.png"/>
@@ -114,7 +112,7 @@
 </div>
     <div id="main">
         <div
-            class="sidebar "
+            class="sidebar tutorials"
             id="sidebarNav"
         >
             
@@ -124,95 +122,130 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2> <h2><a href="changelog.html">LOG</a></h2>  <h2><a href="swagger.html">API</a></h2> <div class="category"><h3>Classes</h3><ul><li><a href="AbstractClass.html">AbstractClass</a></li><li><a href="ClassName.html">ClassName</a></li><li><a href="ComponentRenderer.html">ComponentRenderer</a></li><li><a href="SomeClass.html">SomeClass</a></li><li><a href="ValidationError_ValidationError.html">ValidationError</a></li><li><a href="reactComponents.html">reactComponents</a></li></ul><h3>Interfaces</h3><ul><li><a href="PropertyJSON.html">PropertyJSON</a></li></ul><h3>Global</h3><ul><li><a href="global.html#DefaultWrapper">DefaultWrapper</a></li><li><a href="global.html#Documented">Documented</a></li><li><a href="global.html#Test">Test</a></li><li><a href="global.html#add">add</a></li><li><a href="global.html#addCopyButton">addCopyButton</a></li><li><a href="global.html#addImageCaption">addImageCaption</a></li><li><a href="global.html#addLineNumbers">addLineNumbers</a></li><li><a href="global.html#addMermaidCaption">addMermaidCaption</a></li><li><a href="global.html#buildGroupNav">buildGroupNav</a></li><li><a href="global.html#buildNav">buildNav</a></li><li><a href="global.html#checkType">checkType</a></li><li><a href="global.html#convertMembers">convertMembers</a></li><li><a href="global.html#convertParams">convertParams</a></li><li><a href="global.html#fillMethodComment">fillMethodComment</a></li><li><a href="global.html#getCommentAsString">getCommentAsString</a></li><li><a href="global.html#getName">getName</a></li><li><a href="global.html#getTypeName">getTypeName</a></li><li><a href="global.html#linktoExternal">linktoExternal</a></li><li><a href="global.html#linktoTutorial">linktoTutorial</a></li><li><a href="global.html#myAdd">myAdd</a></li><li><a href="global.html#publish">publish</a></li><li><a href="global.html#renderComponent">renderComponent</a></li><li><a href="global.html#renderMermaidLangs">renderMermaidLangs</a></li><li><a href="global.html#search">search</a></li><li><a href="global.html#sidebarIsVisible">sidebarIsVisible</a></li><li><a href="global.html#swaggerDefinition">swaggerDefinition</a></li></ul></div><div class="category"><h2>Application services</h2><h3>Classes</h3><ul><li><a href="MatrixBridge.html">MatrixBridge</a></li></ul></div><div class="category"><h2>Errors</h2><h3>Classes</h3><ul><li><a href="ValidationError.html">ValidationError</a></li></ul></div>
+                    <div class="category"><h3>Tutorials</h3><ul><li><a href="tutorial-my-awesome-tutorial.html">01. My Awesome Tutorial</a></li><li><a href="tutorial-swagger-setup-on-express-api.html">02. Swagger Setup on Express API</a></li></ul></div>
                 
             </nav>
         </div>
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Source</p>
-                    <h1>fixtures/component.jsx</h1>
+                    <p>Tutorial</p>
+                    <h1>02. Swagger Setup on Express API</h1>
                 </header>
-                
+                <section>
 
-
-
-    
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-
-const Bold = styled.div`
-  background: red;
-  color: #fff;
-  padding: 5px;
-`
-
-/**
- * Some documented component
- *
- * @component Test
- * @example
- *  &lt;Test size=‘4’/>
- */
-const Test = ({size}) =>(
-  &lt;Box size={size}> &lt;/Box> 
-)
-
-/**
- * Some documented component
- * @function Documented
- * @component
- * @example &lt;caption>Default example&lt;/caption>
- * const text = 'Meva'
- * return (
- *   &lt;Documented2>
- *     &lt;Documented text={text} />
- *   &lt;/Documented2>
- * )
- * 
- * @example &lt;caption>Ala ma kota&lt;/caption>
- * const text = 'some example text 2'
- * return (
- *   &lt;Documented2>
- *     &lt;Documented text={text} header={'sime'} />
- *   &lt;/Documented2>
- * )
- */
-const Documented = (props) => {
-  const { text, header } = props
-  return (
-    &lt;p>
-      {header}
-      &lt;Bold>
-        {text}
-      &lt;/Bold>
-    &lt;/p>
-  )
-}
-
-Documented.propTypes = {
-  /**
-   * Text is a text
-   */
-  text: PropTypes.string,
-  header: PropTypes.string.isRequired,
-}
-
-Documented.defaultProps = {
-  text: 'Hello World',
-}
-
-export default Documented
+<article>
+    <h1>README for Swagger setup on Express API</h1>
+<div class="mdc">
+<div class="ic">
+<p>Table of content</p>
+<ul>
+<li><a href="#readme-for-swagger-setup-on-express-api">README for Swagger setup on Express API</a>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="ic">
+<h2>Introduction</h2>
+<p>This guide is a step-by-step instruction on how to setup Swagger for API documentation in an Express API project. It assumes that you already have an Express API project set up. If not, you should do so before proceeding.</p>
+</div>
+</div>
+<h2>Dependencies</h2>
+<p>The following packages are required for this setup:</p>
+<ul>
+<li>&quot;swagger-jsdoc&quot;: &quot;5.0.1&quot;</li>
+<li>&quot;swagger-ui-express&quot;: &quot;^4.6.3&quot;</li>
+</ul>
+<h2>Installation</h2>
+<ol>
+<li>
+<p>First, install the necessary packages using npm (node package manager) in your project root directory. You can do this by running the following command in your terminal:</p>
+<pre class="prettyprint source lang-bash"><code>npm install swagger-jsdoc@5.0.1 swagger-ui-express@4.6.3
 </code></pre>
-        </article>
-    </section>
+</li>
+</ol>
+<h2>Configuration</h2>
+<ol>
+<li>
+<p>Create a new file named <code>swagger.js</code> inside the <code>./config</code> directory in your project root.</p>
+</li>
+<li>
+<p>In this file, you will be setting up your Swagger definition. This will include paths to your API routes, information about your API such as the title and version, and configurations for your servers. Here's an example:</p>
+<pre class="prettyprint source lang-javascript"><code>const swaggerJsdoc = require('swagger-jsdoc');
 
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Express API with Swagger',
+      version: '1.0.0',
+    },
+    servers: [
+      {
+        url: 'http://localhost:5500',
+        description: 'Development server',
+      },
+      {
+        url: 'https://sherifbutt.github.io/super-docs-documentation/',
+        description: 'Production server',
+      },
+    ],
+  },
+  apis: ['./routes/*.js'], // path to your API routes files
+};
 
+const specs = swaggerJsdoc(options);
+module.exports = specs;
+</code></pre>
+</li>
+<li>
+<p>In the root directory of your project, create a <code>jsdocs.json</code> file with the following content:</p>
+<pre class="prettyprint source lang-json"><code>{
+  &quot;super-docs&quot;: {
+    &quot;swagger&quot;: &quot;./config/swagger.js&quot;,
+    &quot;productionServer&quot;: &quot;https://sherifbutt.github.io/super-docs-documentation/&quot;,
+    &quot;developmentServer&quot;: &quot;http://127.0.0.1:5500/docs/&quot;
+  }
+}
+</code></pre>
+<p>If a key named <code>swagger</code> is provided, a top navigation menu will appear called &quot;API&quot;.</p>
+</li>
+</ol>
+<h2>Usage</h2>
+<ol>
+<li>
+<p>Now you can use swagger-ui-express to serve your API documentation. You need to set this up in your main server file, typically <code>app.js</code> or <code>server.js</code>:</p>
+<pre class="prettyprint source lang-javascript"><code>const express = require('express');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./config/swagger.js');
 
+const app = express();
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+// your other middlewares and routes go here
+
+app.listen(5500, () => {
+  console.log('Listening on port 5500');
+});
+</code></pre>
+<p>This will serve your Swagger UI API documentation on <code>/api-docs</code> route.</p>
+</li>
+</ol>
+<h2>Testing</h2>
+<p>You can now start your server and go to <code>http://localhost:5500/api-docs</code> to view your API documentation.</p>
+<p>Please replace the URLs and the port according to your setup and make sure the URLs and paths match your actual API routes and servers.</p>
+<p>If you have any issues, please open an issue or a pull request.</p>
+</article>
+
+</section>
 
             </div>
             

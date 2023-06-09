@@ -96,6 +96,10 @@
                                 01. My Awesome Tutorial
                             </a>
                         
+                            <a class="dropdown-item" href="tutorial-swagger-setup-on-express-api.html">
+                                02. Swagger Setup on Express API
+                            </a>
+                        
                         </div>
                     </div>
                 </div>
@@ -152,9 +156,9 @@
 
 
     <section>
-        <article><h1>Super Docs theme for JsDocs</h1>
+        <article><h1>1. Super Docs theme for JsDocs</h1>
 <p>Documentation toolbox for your <strong>javascript</strong> / <strong>typescript</strong> projects based on JSDoc3 with <strong>@category</strong> and <strong>@optional</strong> plugins.</p>
-<h3><a name="key-features"></a>Key features:</h3>
+<h3>1.0.1. <a name="key-features"></a>Key features:</h3>
 <ul>
 <li>Openapi Swagger documentation out of the box, with beautiful theme</li>
 <li>Mermaid integration for flowcharts, sequence diagrams and more</li>
@@ -170,53 +174,62 @@
 <p><img src="images/with-mermaid.png" alt="pc version/ with mermaid" title="pc version with mermaid integration"></p>
 </div>
 </div>
-<ol>
-<li><a href="#installation">Installation</a></li>
-<li><a href="#theme-usage">Theme Usage</a>
+<h2>1.1. Table of content</h2>
 <ul>
-<li><a href="#with-command-line">With command line</a></li>
-<li><a href="#with-npm-and-configuration-file">With npm and configuration file</a></li>
+<li><a href="#1-super-docs-theme-for-jsdocs">1. Super Docs theme for JsDocs</a>
+<ul>
+<li><a href="#101-key-features">1.0.1. Key features:</a></li>
+<li><a href="#11-table-of-content">1.1. Table of content</a></li>
+<li><a href="#12-example">1.2. Example</a></li>
+<li><a href="#13-installation">1.3. Installation</a></li>
+<li><a href="#14-theme-usage">1.4. Theme Usage</a>
+<ul>
+<li><a href="#141-with-command-line">1.4.1. With command line</a></li>
+<li><a href="#142-with-npm-and-configuration-file">1.4.2. With npm and configuration file</a></li>
 </ul>
 </li>
-<li><a href="#typescript-support">TypeScript support</a>
+<li><a href="#15-typescript-support">1.5. TypeScript support</a>
 <ul>
-<li><a href="#usage">Usage</a></li>
-<li><a href="#how-it-works">How it works?</a></li>
-<li><a href="#examples">Examples</a></li>
+<li><a href="#151-usage">1.5.1. Usage</a></li>
+<li><a href="#152-how-it-works">1.5.2. How it works?</a></li>
+<li><a href="#153-examples">1.5.3. Examples</a></li>
 </ul>
 </li>
-<li><a href="#category-plugin">@category plugin</a>
+<li><a href="#16-category-plugin">1.6. @category plugin</a>
 <ul>
-<li><a href="#usage-1">Usage</a></li>
+<li><a href="#161-usage">1.6.1. Usage</a></li>
 </ul>
 </li>
-<li><a href="#customization">Customization</a>
+<li><a href="#17-swagger-integration">1.7. Swagger integration</a></li>
+<li><a href="#18-customization">1.8. Customization</a>
 <ul>
-<li><a href="#explanation-of-key-fields">Explanation of Key Fields</a></li>
+<li><a href="#181-explanation-of-key-fields">1.8.1. Explanation of Key Fields</a></li>
+<li><a href="#182-extras">1.8.2. Extras</a>
+<ul>
+<li><a href="#1821-typedefimport">1.8.2.1. typedef(import(...))</a></li>
 </ul>
 </li>
-<li><a href="#extras">Extras</a>
-<ul>
-<li><a href="#typedefimport">typedef(import(...))</a></li>
 </ul>
 </li>
-<li><a href="#setting-up-for-the-development">Setting up for the development</a></li>
-<li><a href="#setting-up-the-jsdoc-in-your-project">Setting up the jsdoc in your project</a></li>
-<li><a href="#automatically-generate-jsdocs-before-pushing-to-github">Automatically generate JSDocs before pushing to github</a></li>
-<li><a href="#license">License</a></li>
-<li><a href="#about-sherifbuttco">About sherifButt.co</a></li>
-</ol>
-<h2><a name="example"></a>Example</h2>
+<li><a href="#19-setting-up-for-the-development">1.9. Setting up for the development</a></li>
+<li><a href="#110-setting-up-the-jsdoc-in-your-project">1.10. Setting up the jsdoc in your project</a></li>
+<li><a href="#111--generate-jsdocs-before-pushing-to-github">1.11.  generate JSDocs before pushing to github</a></li>
+<li><a href="#112-license">1.12. License</a></li>
+<li><a href="#113-about-sherifbuttco">1.13. About sherifButt.co</a></li>
+</ul>
+</li>
+</ul>
+<h2>1.2. <a name="example"></a>Example</h2>
 <p>Example documentation can be found here: https://sherifbutt.github.io/super-docs-documentation/</p>
-<h2><a name="installation"></a>Installation</h2>
+<h2>1.3. <a name="installation"></a>Installation</h2>
 <pre class="prettyprint source lang-sh"><code>npm install --save-dev super-docs
 </code></pre>
-<h2><a name="theme-usage"></a>Theme Usage</h2>
-<h3><a name="with-command-line"></a>With command line</h3>
+<h2>1.4. <a name="theme-usage"></a>Theme Usage</h2>
+<h3>1.4.1. <a name="with-command-line"></a>With command line</h3>
 <p>Assuming that you have <a href="https://github.com/jsdoc/jsdoc">jsdoc</a> installed globally:</p>
 <pre class="prettyprint source lang-sh"><code>jsdoc your-documented-file.js -t ./node_modules/super-docs
 </code></pre>
-<h3><a name="with-npm-and-configuration-file"></a>With npm and configuration file</h3>
+<h3>1.4.2. <a name="with-npm-and-configuration-file"></a>With npm and configuration file</h3>
 <div class="mdc">
 <div class="ic">
 <p>In your projects package.json file - add a new script:</p>
@@ -233,9 +246,9 @@
 </code></pre>
 </div>
 </div>
-<h2><a name="typescript-support"></a>TypeScript support</h2>
+<h2>1.5. <a name="typescript-support"></a>TypeScript support</h2>
 <p>super-docs has a plugin which allows you to generate documentation from your TypeScript codebase.</p>
-<h3><a name="usage"></a>Usage</h3>
+<h3>1.5.1. <a name="usage"></a>Usage</h3>
 <p>To use it update your <code>jsdoc.json</code> file</p>
 <pre class="prettyprint source lang-json"><code>...
 &quot;tags&quot;: {
@@ -250,7 +263,7 @@
 ...
 </code></pre>
 <p>And now you can run your <code>jsdoc</code> command and parse TypeScript files.</p>
-<h3><a name="how-it-works"></a>How it works?</h3>
+<h3>1.5.2. <a name="how-it-works"></a>How it works?</h3>
 <p>It performs 4 operations:</p>
 <ul>
 <li>First of all it transpilers all .ts and .tsx files to .js, so that all comments used by you are treated
@@ -263,7 +276,7 @@ as a regular JSDoc comments.</li>
 <li>Converts descriptions for your public, protected, static class members</li>
 </ul>
 <p>so they can be printed by JSDoc automatically.</p>
-<h3><a name="examples"></a>Examples</h3>
+<h3>1.5.3. <a name="examples"></a>Examples</h3>
 <pre class="prettyprint source lang-jsx"><code>/**
  * ActionRequest
  * @memberof Action
@@ -366,9 +379,9 @@ class ClassName {
   constructor(color: string) {}
 }
 </code></pre>
-<h2><a name="category-plugin"></a>@category plugin</h2>
+<h2>1.6. <a name="category-plugin"></a>@category plugin</h2>
 <p>super-docs also allows you to nest your documentation into categories and subcategories in the sidebar menu.</p>
-<h3><a name="usage-1"></a>Usage</h3>
+<h3>1.6.1. <a name="usage-1"></a>Usage</h3>
 <p>To add a plugin - update <code>plugins</code> section in your <code>jsdoc.json</code> file:</p>
 <pre class="prettyprint source lang-json"><code>...
 &quot;tags&quot;: {
@@ -389,7 +402,26 @@ class YourClass {
   ....
 }
 </code></pre>
-<h2><a name="customization"></a>Customization</h2>
+<h2>1.7. <a name="swagger-integration"></a>Swagger integration</h2>
+<p>Super Docs utilizes two main dependencies, <code>swagger-jsdoc</code> (5.0.1) and <code>swagger-ui-express</code> (^4.6.3), to facilitate comprehensive API documentation for your Express API. Swagger's interface offers an easy way to interact with the API's resources. In this brief overview, we will outline the initial setup steps. For a more comprehensive guide, please visit our <a href="#ExtensiveTutorial">Extensive Tutorial</a>.</p>
+<p>First, make sure your <code>jsdocs.json</code> file includes a &quot;super-docs&quot; section:</p>
+<pre class="prettyprint source lang-json"><code>{
+    &quot;super-docs&quot;: {
+        &quot;swagger&quot;: &quot;./config/swagger.js&quot;,
+        &quot;productionServer&quot;:&quot;https://sherifbutt.github.io/super-docs/&quot;,
+        &quot;developmentServer&quot;:&quot;http://127.0.0.1:5500/docs/&quot;
+    }
+}
+</code></pre>
+<p>In this configuration:</p>
+<ul>
+<li>The <code>swagger</code> key points to your swagger configuration file.</li>
+<li><code>productionServer</code> points Swagger to your production server.</li>
+<li><code>developmentServer</code> points Swagger to your development server.</li>
+</ul>
+<p>If the <code>swagger</code> key is provided, a top navigation menu titled 'API' will appear.</p>
+<p>For more detailed instructions on setting up and installing Swagger, please refer to our <a href="tutorial-swagger-setup-on-express-api.html">Extensive Tutorial</a>.</p>
+<h2>1.8. <a name="customization"></a>Customization</h2>
 <p>First of all, let me state that super-docs extends the <code>default</code> template. That is why default template parameters are also handled.</p>
 <p>[BETA]: You must explicitly set the <code>search</code> option of the <code>default</code> template to <code>true</code> to enable search</p>
 <p>To customize the super-docs pass <code>options</code> to <code>templates['super-docs']</code>. section in your <code>jsdoc configuration file</code>.</p>
@@ -449,7 +481,7 @@ class YourClass {
     }
 }
 </code></pre>
-<h3><a name="explanation-of-key-fields"></a>Explanation of Key Fields</h3>
+<h3>1.8.1. <a name="explanation-of-key-fields"></a>Explanation of Key Fields</h3>
 <p>Sure, here's the information converted into a markdown table:</p>
 <table>
 <thead>
@@ -546,8 +578,8 @@ class YourClass {
 </tbody>
 </table>
 <p>Please ensure that all paths and settings are correctly configured for your project's structure and requirements.</p>
-<h3><a name="extras"></a>Extras</h3>
-<h4><a name="typedefimport"></a>typedef(import(...))</h4>
+<h3>1.8.2. <a name="extras"></a>Extras</h3>
+<h4>1.8.2.1. <a name="typedefimport"></a>typedef(import(...))</h4>
 <p>super-docs also has one extra plugin for handling typescript'like types imports like (it has to be one-liner):</p>
 <pre class="prettyprint source"><code>/** @typedef {import('./some-other-file').ExportedType} ExportedType */
 </code></pre>
@@ -556,7 +588,7 @@ class YourClass {
         &quot;node_modules/super-docs/typedef-import&quot;
     ],
 </code></pre>
-<h2><a name="setting-up-for-the-development"></a>Setting up for the development</h2>
+<h2>1.9. <a name="setting-up-for-the-development"></a>Setting up for the development</h2>
 <p>If you want to change the theme locally follow the steps:</p>
 <ol>
 <li>Clone the repo to the folder where you have the project:</li>
@@ -591,13 +623,13 @@ yarn
 DOCS_COMMAND='npm run docs' DOCS=../src/**/*,../config/**/* DOCS_OUTPUT=../docs cd super-docs && gulp
 </code></pre>
 <p>The script should launch the browser and refresh it whenever you change something in the template or in <code>DOCS</code>.</p>
-<h2><a name="setting-up-the-jsdoc-in-your-project"></a>Setting up the jsdoc in your project</h2>
+<h2>1.10. <a name="setting-up-the-jsdoc-in-your-project"></a>Setting up the jsdoc in your project</h2>
 <p>If you want to see how to setup jsdoc in your project - take a look at these brief tutorials:</p>
 <ul>
 <li>JSDoc - https://www.youtube.com/watch?v=Yl6WARA3IhQ</li>
 <li>super-docs and Mermaid: https://www.youtube.com/watch?v=UBMYogTzsBk</li>
 </ul>
-<h2><a name="automatically-generate-jsdocs-before-pushing-to-github"></a> generate JSDocs before pushing to github</h2>
+<h2>1.11. <a name="automatically-generate-jsdocs-before-pushing-to-github"></a> generate JSDocs before pushing to github</h2>
 <p>You can use Git hooks, specifically a <code>pre-push</code> hook, to automate the generation of JSDocs each time you push your changes. This will ensure that your documentation is always up to date with your latest changes. Git hooks are scripts that Git executes before or after events such as <code>commit</code>, <code>push</code>, and so forth.</p>
 <pre><code>Here's an example of how you could use a Git `pre-push` hook to generate your documentation:
 
@@ -617,9 +649,9 @@ You will also need to give the `pre-push` file the appropriate permissions to al
 chmod +x .git/hooks/pre-push
 ```
 </code></pre>
-<h2><a name="license"></a>License</h2>
+<h2>1.12. <a name="license"></a>License</h2>
 <p>super-docs is Copyright © 2019 sherifButt.co. It is free software and may be redistributed under the terms specified in the <a href="LICENSE">LICENSE</a> file - MIT.</p>
-<h2><a name="about-sherifbuttco"></a>About <a href="https://portfolio-zeta-vert.vercel.app">sherifButt.co</a></h2>
+<h2>1.13. <a name="about-sherifbuttco"></a>About <a href="https://portfolio-zeta-vert.vercel.app">sherifButt.co</a></h2>
 <p>We're an open, friendly team that helps clients from all over the world to transform their businesses and create astonishing products.</p></article>
     </section>
 

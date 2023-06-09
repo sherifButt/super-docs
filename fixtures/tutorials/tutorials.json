@@ -1,5 +1,7 @@
 {
     "my-awesome-tutorial": {
         "title": "01. My Awesome Tutorial"
-    }
+    },
+    "swagger-setup-on-express-api":{
+        "title": "02. Swagger Setup on Express API"}
 }
